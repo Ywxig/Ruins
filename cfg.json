@@ -1,0 +1,40 @@
+{
+    "name": ["Nivara", "Krythos", "Zephyria", 
+            "Aetheron", "Lunaris", "Xyphor", 
+            "Thaloria", "Vortexia", "Oberon", 
+            "Celestra", "Draconis", "Vesperis", 
+            "Pyrrhon", "Aquilae", "Seraphex", 
+            "Quantara", "Falcoris", "Zypheron", 
+            "Mythara", "Helion", "Vallara", 
+            "Orionis", "Calypso", "Elysium", 
+            "Nyxaris", "Zephyron", "Phantasia", 
+            "Galadria", "Astryxis", "Titanis", 
+            "Cythara", "Ravenis", "Thundra", 
+            "Xandria", "Erebon", "Lyraxis", 
+            "Stellaris", "Aurumis", "Nebulon", 
+            "Zentara", "Krypton", "Serenon", 
+            "Valyrian", "Xeraphis", "Coriolis", 
+            "Lunara", "Pyralis", "Draconara", 
+            "Stygian", "Oceandor"],
+
+        "system_name": ["Altharius", "Syrion", "Tanaris", "Luminara", 
+                        "Delphirium", "Zenitra", "Cosmofir", "Estellion", 
+                        "Tyrone", "Kratos", "Phoenix-9", "Nebulos", 
+                        "Radion-3", "Epsilon", "Solastar", "Vitara", 
+                        "Miraculon", "Helios", "Celestia", "Cosmoray", 
+                        "Varedon", "Eidos", "Nexus", "Galaxis", "Demetra", 
+                        "Astralos", "Terracium", "Novius", "Panterra", "Entarium", 
+                        "Zarion", "Magnus", "Cyberon", "Torinis", "Viridion", "Apollo-7",
+                         "Torridon", "Krintor", "Pentarius", "Lebedus", "Fatum", "Tranquilius",
+                          "Delphian", "Astras", "Zargora", "Kaleidos", "Sacrum", 
+                          "Harmonia", "Sigma", "Criterion"],
+        "systems_count": 2,
+        "objects": 3,
+        "ships" : {
+            "Milan" : "    &    \n || O || \n @@@&@@@ \n  ^ & ^  \n        \n"
+        },
+        "types": ["Planet", "Station", "Factory"], 
+        "wellcome": "\u0414\u043e\u0431\u0440\u043e \u043f\u043e\u0436\u0430\u043b\u043e\u0432\u0430\u0442\u044c \u0432 \u0438\u0433\u0440\u0443 Ruin", 
+        "option_help": "systems_count - \u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u0441\u0442\u0435\u043c \u0432 \u0432\u0430\u0448\u0435\u0439 \u0433\u0430\u043b\u0430\u043a\u0442\u0438\u043a\u0435\nobjects - \u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0435 \u0447\u0438\u0441\u043b\u043e \u043e\u0431\u0435\u043a\u0442\u043e\u0432 \u0432 \u0441\u0438\u0441\u0442\u0435\u043c\u0435 (\u041f\u043b\u0430\u043d\u0435\u0442\u044b, \u0421\u0442\u0430\u043d\u0446\u0438\u0438, \u0424\u0430\u0431\u0440\u043a\u0438)"
+
+    }
