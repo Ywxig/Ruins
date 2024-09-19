@@ -1,0 +1,158 @@
+
+{
+    "objects_name": ["Nivara", "Krythos", "Zephyria", 
+            "Aetheron", "Lunaris", "Xyphor", 
+            "Thaloria", "Vortexia", "Oberon", 
+            "Celestra", "Draconis", "Vesperis", 
+            "Pyrrhon", "Aquilae", "Seraphex", 
+            "Quantara", "Falcoris", "Zypheron", 
+            "Mythara", "Helion", "Vallara", 
+            "Orionis", "Calypso", "Elysium", 
+            "Nyxaris", "Zephyron", "Phantasia", 
+            "Galadria", "Astryxis", "Titanis", 
+            "Cythara", "Ravenis", "Thundra", 
+            "Xandria", "Erebon", "Lyraxis", 
+            "Stellaris", "Aurumis", "Nebulon", 
+            "Zentara", "Krypton", "Serenon", 
+            "Valyrian", "Xeraphis", "Coriolis", 
+            "Lunara", "Pyralis", "Draconara", 
+            "Stygian", "Oceandor"],
+
+        "system_name": ["Altharius", "Syrion", "Tanaris", "Luminara", 
+                        "Delphirium", "Zenitra", "Cosmofir", "Estellion", 
+                        "Tyrone", "Kratos", "Phoenix-9", "Nebulos", 
+                        "Radion-3", "Epsilon", "Solastar", "Vitara", 
+                        "Miraculon", "Helios", "Celestia", "Cosmoray", 
+                        "Varedon", "Eidos", "Nexus", "Galaxis", "Demetra", 
+                        "Astralos", "Terracium", "Novius", "Panterra", "Entarium", 
+                        "Zarion", "Magnus", "Cyberon", "Torinis", "Viridion", "Apollo-7",
+                        "Torridon", "Krintor", "Pentarius", "Lebedus", "Fatum", "Tranquilius",
+                        "Delphian", "Astras", "Zargora", "Kaleidos", "Sacrum", 
+                        "Harmonia", "Sigma", "Criterion"],
+        
+        "items" : {
+            "Drill" : {
+                "dmg" : 2,
+                "mass" : 9
+            },
+
+            "Spoon" : {
+                "dmg" : 0,
+                "mass" : 0.1
+            }
+
+        },
+        "systems_count": 2,
+        "objects": 3,
+        "ships" : {
+            "Milan" : "    &    \n || O || \n @@@&@@@ \n  ^ & ^  \n        \n"
+        },
+        "types": ["Planet", "Station", "Factory"],
+        "enter_name" : "Введите ваше имя",
+        "load_succesfull" : "Сохранение загружено успешно",
+        "wellcome": "Добро пожаловать в Ruins", 
+        "option_help": "",
+        "races" : {
+            "race_list" : ["humans", "kobalds", "tabaxis", "lizardfolgs", "dvarfs", "zaichegons", "sergals", "protogens", "gnollys", "lilmotits"],
+            "humans" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "kobalds" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "tabaxis" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "lizardfolgs" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "zaichegons" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "sergals" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "dvarfs" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "protogens" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "gnollys" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+
+            "lilmotits" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            }
+
+
+
+        },
+        "jobs" : {
+            "guard" : {
+                "dmg" : 1,
+                "hp" : -1,
+                "ca" : 5,
+                "r_item" : ["Dril", "Spoon"]
+            }
+        }
+    }
