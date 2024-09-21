@@ -1,1 +1,22 @@
-{"name": "Jonkler","mony" : 5000, "race": "humans", "caracteristics": {"force": 0, "intelect": 0, "harizma": 0, "movement": 0, "body": 0, "wizart": 0}}
+{
+  "name": "Jonkler",
+  "mony": 5000,
+  "race": "sergals",
+  "description": "\u0411\u0440\u043e\u0432\u043a\u0438 \u0434\u043e\u043c\u0438\u043a\u043e\u043c \u0445\u0443\u0439 \u0442\u0440\u0443\u0431\u043e\u0439",
+  "modifications": {
+    "force": 0,
+    "intelect": 0,
+    "harizma": 0,
+    "movement": 0,
+    "body": 0,
+    "wizart": 0
+  },
+  "caracteristics": {
+    "force": 10,
+    "intelect": 8,
+    "harizma": 12,
+    "movement": 15,
+    "body": 14,
+    "wizart": 13
+  }
+}

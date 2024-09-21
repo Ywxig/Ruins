@@ -1,1 +1,281 @@
-[{"star": {"radius": 459058, "teperatur": 24881, "L": 2.301756401507985e+23, "mass": 0.00017179850735243952}, "ojects": [{"objects_name": "Helion", "type": "Planet", "radius": 17212, "ro": 6460, "mass": 1862998289.0036018}, {"objects_name": "Aquilae", "type": "Station", "heght": 951, "size": 860085351, "population": 19113007.8}], "system_name": "Torridon", "id": "", "links": []}, {"star": {"radius": 225794, "teperatur": 16728, "L": 1.137768191448692e+22, "mass": 8.492074872732439e-06}, "ojects": [{"objects_name": "Zephyron", "type": "Station", "heght": 224, "size": 11239424, "population": 216142.76923076922}, {"objects_name": "Quantara", "type": "Planet", "radius": 104749, "ro": 4044, "mass": 7097569161.5670805}, {"objects_name": "Falcoris", "type": "Planet", "radius": 1725, "ro": 5307, "mass": 153386376.3559295}], "system_name": "Varedon", "id": "", "links": []}, {"player": {"sys": "Torridon", "name": "Jonkler"}}]
+[
+  {
+    "star": {
+      "radius": 657094,
+      "teperatur": 14561,
+      "L": 5.53187967298732e+22,
+      "mass": 4.12888466411951e-05,
+      "name": "Noxara"
+    },
+    "ojects": [
+      {
+        "objects_name": "Quantara",
+        "type": "Planet",
+        "radius": 64309,
+        "ro": 5972,
+        "mass": 6434875608.871276,
+        "population": 0,
+        "ore": 557023968150888.1
+      },
+      {
+        "objects_name": "Nebulon",
+        "type": "Asteroid",
+        "radius": 154,
+        "ro": 5354,
+        "mass": 13814898.177958623,
+        "population": 0,
+        "ore": 10708997.367945774
+      },
+      {
+        "objects_name": "Falcoris",
+        "type": "Planet",
+        "radius": 126062,
+        "ro": 5728,
+        "mass": 12098619068.472958,
+        "population": 0,
+        "ore": 4195765355763228.5
+      }
+    ],
+    "system_name": "Criterion",
+    "id": "",
+    "links": [
+      2,
+      0
+    ]
+  },
+  {
+    "star": {
+      "radius": 953476,
+      "teperatur": 7945,
+      "L": 1.0324001337893173e+22,
+      "mass": 7.705628704204488e-06,
+      "name": "Orionis"
+    },
+    "ojects": [
+      {
+        "objects_name": "Elysium",
+        "type": "Asteroid",
+        "radius": 115,
+        "ro": 6182,
+        "mass": 11911746.481155153,
+        "population": 0,
+        "ore": 4459438.411893151
+      },
+      {
+        "objects_name": "Nivara",
+        "type": "Asteroid",
+        "radius": 167,
+        "ro": 6932,
+        "mass": 19396511.391318947,
+        "population": 0,
+        "ore": 13656394.775488526
+      },
+      {
+        "objects_name": "Xyphor",
+        "type": "Planet",
+        "radius": 29496,
+        "ro": 6314,
+        "mass": 3120443351.3148613,
+        "population": 0,
+        "ore": 53746227664276.64
+      },
+      {
+        "objects_name": "Cythara",
+        "type": "Planet",
+        "radius": 30738,
+        "ro": 5424,
+        "mass": 2793469202.7962537,
+        "population": 0,
+        "ore": 60825464257396.16
+      },
+      {
+        "objects_name": "Pyrrhon",
+        "type": "Asteroid",
+        "radius": 91,
+        "ro": 6686,
+        "mass": 10194275.476549458,
+        "population": 0,
+        "ore": 2209585.5763877593
+      },
+      {
+        "objects_name": "Vesperis",
+        "type": "Planet",
+        "radius": 89865,
+        "ro": 6468,
+        "mass": 9738883944.716953,
+        "population": 0,
+        "ore": 1519953667352941.2
+      }
+    ],
+    "system_name": "Terracium",
+    "id": "",
+    "links": [
+      3,
+      0,
+      4
+    ]
+  },
+  {
+    "star": {
+      "radius": 638095,
+      "teperatur": 29408,
+      "L": 8.679317111280643e+23,
+      "mass": 0.0006478069197850906,
+      "name": "Stellaris"
+    },
+    "ojects": [
+      {
+        "objects_name": "Astryxis",
+        "type": "Planet",
+        "radius": 77863,
+        "ro": 6142,
+        "mass": 8012896727.501067,
+        "population": 0,
+        "ore": 988671492496642.2
+      },
+      {
+        "objects_name": "Oceandor",
+        "type": "Asteroid",
+        "radius": 122,
+        "ro": 4945,
+        "mass": 10108220.970582327,
+        "population": 0,
+        "ore": 5324344.42104667
+      },
+      {
+        "objects_name": "Lunaris",
+        "type": "Asteroid",
+        "radius": 83,
+        "ro": 6826,
+        "mass": 9492770.40337347,
+        "population": 0,
+        "ore": 1676567.0493769369
+      },
+      {
+        "objects_name": "Xeraphis",
+        "type": "Planet",
+        "radius": 110109,
+        "ro": 4020,
+        "mass": 7416473890.593901,
+        "population": 0,
+        "ore": 2795934988656994.5
+      }
+    ],
+    "system_name": "Varedon",
+    "id": "",
+    "links": [
+      2
+    ]
+  },
+  {
+    "star": {
+      "radius": 694817,
+      "teperatur": 13448,
+      "L": 4.500125104573257e+22,
+      "mass": 3.358803630820463e-05,
+      "name": "Novae"
+    },
+    "ojects": [
+      {
+        "objects_name": "Celestra",
+        "type": "Planet",
+        "radius": 120720,
+        "ro": 6773,
+        "mass": 13699632054.41296,
+        "population": 0,
+        "ore": 3684650448320651.5
+      },
+      {
+        "objects_name": "Vortexia",
+        "type": "Asteroid",
+        "radius": 229,
+        "ro": 4516,
+        "mass": 17327584.13337085,
+        "population": 0,
+        "ore": 35212194.84481126
+      }
+    ],
+    "system_name": "Entarium",
+    "id": "",
+    "links": [
+      0
+    ]
+  },
+  {
+    "star": {
+      "radius": 573881,
+      "teperatur": 4748,
+      "L": 4.770231414933452e+20,
+      "mass": 3.560405594068855e-07,
+      "name": "Orionis"
+    },
+    "ojects": [
+      {
+        "objects_name": "Aetheron",
+        "type": "Asteroid",
+        "radius": 167,
+        "ro": 4052,
+        "mass": 11337949.243742695,
+        "population": 0,
+        "ore": 13656394.775488526
+      },
+      {
+        "objects_name": "Krypton",
+        "type": "Planet",
+        "radius": 115209,
+        "ro": 4748,
+        "mass": 9165279592.715845,
+        "population": 0,
+        "ore": 3202711614160351.0
+      },
+      {
+        "objects_name": "Xandria",
+        "type": "Asteroid",
+        "radius": 167,
+        "ro": 6159,
+        "mass": 17233570.926014625,
+        "population": 0,
+        "ore": 13656394.775488526
+      },
+      {
+        "objects_name": "Zephyron",
+        "type": "Planet",
+        "radius": 29075,
+        "ro": 4501,
+        "mass": 2192690509.975774,
+        "population": 0,
+        "ore": 51477539893694.16
+      },
+      {
+        "objects_name": "Draconis",
+        "type": "Planet",
+        "radius": 53225,
+        "ro": 4474,
+        "mass": 3989883826.3960266,
+        "population": 0,
+        "ore": 315795272280808.44
+      },
+      {
+        "objects_name": "Stellaris",
+        "type": "Asteroid",
+        "radius": 167,
+        "ro": 5145,
+        "mass": 14396285.503222154,
+        "population": 0,
+        "ore": 13656394.775488526
+      }
+    ],
+    "system_name": "Delphian",
+    "id": "",
+    "links": [
+      4,
+      2
+    ]
+  },
+  {
+    "player": {
+      "sys": "Entarium",
+      "name": "Jonkler"
+    }
+  }
+]

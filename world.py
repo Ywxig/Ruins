@@ -21,11 +21,13 @@ class map:
     class gen:
 
         def Star() -> dict:
+            
             star = {}
             star["radius"] = random.randint(70_000, 1_000_000) #Km
             star["teperatur"] = random.randint(4_000, 30_000) #K
             star["L"] = 4*math.pi*((2*star["radius"]) ** 2) * const_SB*(star["teperatur"] ** 4) #Lu
             star["mass"] = (star["L"]/L_sun) ** 1/3.5 #Kg
+            star["name"] = random.choice(["Lumina", "Aetheris", "Noxara", "Celestia", "Solara", "Stellaris", "Galaxion", "Astralis", "Novae", "Orionis"])
             return star
 
         def Objects(Objects : int, Obj_typs : dict) -> dict:
@@ -41,25 +43,21 @@ class map:
                     obj = {}
                     obj["objects_name"] = random.choice(names)
                     obj["type"] = type_Obj
-                    obj["radius"] = random.randint(250, 140_000)
+                    obj["radius"] = random.randint(250, 140_000)#Km
                     obj["ro"] = random.randint(4000, 7000) #kg/m3
                     obj["mass"] = (4/3) * math.pi * (obj["radius"] * 4) * obj["ro"]
+                    obj["population"] = 0
+                    obj["ore"] = ((4/3) * math.pi * obj["radius"] ** 3) * 0.5
 
-                if type_Obj == "Station":
+                if type_Obj == "Asteroid":
                     obj = {}
                     obj["objects_name"] = random.choice(names)
                     obj["type"] = type_Obj
-                    obj["heght"] = random.randint(100, 1000)
-                    obj["size"] = obj["heght"] ** 3
-                    obj["population"] = obj["size"] / random.randint(30, 60)
-
-                if type_Obj == "Factory":
-                    obj = {}
-                    obj["objects_name"] = random.choice(names)
-                    obj["type"] = type_Obj
-                    obj["heght"] = random.randint(10, 100)
-                    obj["size"] = obj["heght"] ** 3
-                    obj["population"] = obj["size"] / random.randint(30, 60)
+                    obj["radius"] = random.randint(1, 250)#Km
+                    obj["ro"] = random.randint(4000, 7000) #kg/m3
+                    obj["mass"] = (4/3) * math.pi * (obj["radius"] * 4) * obj["ro"]
+                    obj["population"] = 0
+                    obj["ore"] = ((4/3) * math.pi * obj["radius"] ** 3) * 0.7
 
                 arr.append(obj)
                 names.remove(obj["objects_name"])
@@ -84,12 +82,17 @@ class map:
             
             system["system_name"] = random.choice(names)
             system["id"] = ""
+            links = []
+            for _ in range(random.randint(1, 4)):
+                rand = random.randint(0, data_["systems_count"])
+                if rand not in links:
+                    links.append(rand)
+                else:
+                    pass
 
-            system["links"] = []
 
-            
+            system["links"] = links
 
-            
             systems.append(system)
             
             data[system["system_name"]] = systems
@@ -101,7 +104,7 @@ class map:
 
         # сохраняем словарь с информацией в фаил соответствующий айди пользователя
         with open(f, 'w', encoding="utf-8") as file:
-            json.dump(systems, file)
+            json.dump(systems, file, indent=2)
 
     def draw(x, y):
         pass

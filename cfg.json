@@ -42,16 +42,17 @@
             }
 
         },
-        "systems_count": 2,
-        "objects": 3,
+        "systems_count": 5,
+        "objects": 6,
         "ships" : {
             "Milan" : "    &    \n || O || \n @@@&@@@ \n  ^ & ^  \n        \n"
         },
-        "types": ["Planet", "Station", "Factory"],
+        "types": ["Planet", "Asteroid"],
         "enter_name" : "Введите ваше имя",
         "load_succesfull" : "Сохранение загружено успешно",
         "wellcome": "Добро пожаловать в Ruins", 
         "option_help": "",
+        "game_comm_help" : "me - Выдаст информацию о вашем персонаже \nsys - Выдаст открытую информацию о системе в которой вы находитесь",
         "races" : {
             "race_list" : ["humans", "kobalds", "tabaxis", "lizardfolgs", "dvarfs", "zaichegons", "sergals", "protogens", "gnollys", "lilmotits"],
             "humans" : {
