@@ -52,34 +52,50 @@
         "load_succesfull" : "Сохранение загружено успешно",
         "wellcome": "Добро пожаловать в Ruins", 
         "option_help": "",
+        "lenguges" : ["int", "drl", "dvf"],
         "game_comm_help" : "me - Выдаст информацию о вашем персонаже \nsys - Выдаст открытую информацию о системе в которой вы находитесь",
+        "skills" : {
+            "nightvision" : {
+                "vision" : 60
+            }
+        },
         "races" : {
             "race_list" : ["humans", "kobalds", "tabaxis", "lizardfolgs", "dvarfs", "zaichegons", "sergals", "protogens", "gnollys", "lilmotits"],
+            
             "humans" : {
-                "force" : 0,
-                "intelect" : 0,
-                "harizma" : 0,
-                "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+                "force" : 1,
+                "intelect" : 1,
+                "harizma" : 1,
+                "movement" : 1,
+                "body" : 1,
+                "wizart" : 1,
+                "size" : [152, 183],
+                "lenguges" : ["int", "all"],
+                "skill" : ""
             },
 
             "kobalds" : {
                 "force" : 0,
                 "intelect" : 0,
                 "harizma" : 0,
-                "movement" : 0,
+                "movement" : 2,
                 "body" : 0,
-                "wizart" : 0
+                "wizart" : 0,
+                "size" : [60, 80],
+                "lenguges" : ["int",  "drl"],
+                "skill" : "nightvision"
             },
 
             "tabaxis" : {
                 "force" : 0,
                 "intelect" : 0,
-                "harizma" : 0,
-                "movement" : 0,
+                "harizma" : 1,
+                "movement" : 2,
                 "body" : 0,
-                "wizart" : 0
+                "wizart" : 0,
+                "size" : [152, 200],
+                "lenguges" : ["int", "all"],
+                "skill" : "nightvision"
             },
 
             "lizardfolgs" : {
@@ -87,44 +103,59 @@
                 "intelect" : 0,
                 "harizma" : 0,
                 "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+                "body" : 2,
+                "wizart" : 1,
+                "size" : [160, 180],
+                "lenguges" : ["int",  "drl"],
+                "skill" : "nightvision"
             },
 
             "zaichegons" : {
                 "force" : 0,
-                "intelect" : 0,
+                "intelect" : 1,
                 "harizma" : 0,
-                "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+                "movement" : 1,
+                "body" : 1,
+                "wizart" : 0,
+                "size" : [60, 150],
+                "lenguges" : ["int",  "all"],
+                "skill" : "nightvision"
             },
 
             "sergals" : {
-                "force" : 0,
-                "intelect" : 0,
+                "force" : 2,
+                "intelect" : -1,
                 "harizma" : 0,
                 "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+                "body" : 1,
+                "wizart" : 0,
+                "size" : [170, 210],
+                "lenguges" : ["int"],
+                "skill" : ""
             },
 
             "dvarfs" : {
-                "force" : 0,
+                "force" : 2,
                 "intelect" : 0,
                 "harizma" : 0,
                 "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+                "body" : 2,
+                "wizart" : 0,
+                "size" : [122, 152],
+                "lenguges" : ["int",  "dvf"],
+                "skill" : ""
             },
 
             "protogens" : {
                 "force" : 0,
-                "intelect" : 0,
+                "intelect" : 2,
                 "harizma" : 0,
                 "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+                "body" : 1,
+                "wizart" : 0,
+                "size" : [172, 212],
+                "lenguges" : ["int",  "all"],
+                "skill" : "nightvision"
             },
 
             "gnollys" : {
@@ -133,27 +164,48 @@
                 "harizma" : 0,
                 "movement" : 0,
                 "body" : 0,
-                "wizart" : 0
+                "wizart" : 0,
+                "size" : [122, 152],
+                "lenguges" : ["int",  "dvf"],
+                "skill" : "nightvision"
             },
 
             "lilmotits" : {
+                "force" : 1,
+                "intelect" : 0,
+                "harizma" : 2,
+                "movement" : 0,
+                "body" : 1,
+                "wizart" : 0,
+                "size" : [172, 212],
+                "lenguges" : ["int",  "all"],
+                "skill" : ""
+            }
+        },
+        "class" : {
+            "warior" : {
                 "force" : 0,
                 "intelect" : 0,
                 "harizma" : 0,
                 "movement" : 0,
                 "body" : 0,
                 "wizart" : 0
-            }
-
-
-
-        },
-        "jobs" : {
-            "guard" : {
-                "dmg" : 1,
-                "hp" : -1,
-                "ca" : 5,
-                "r_item" : ["Dril", "Spoon"]
+            },
+            "bardarian" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
+            },
+            "engenier" : {
+                "force" : 0,
+                "intelect" : 0,
+                "harizma" : 0,
+                "movement" : 0,
+                "body" : 0,
+                "wizart" : 0
             }
         }
     }
