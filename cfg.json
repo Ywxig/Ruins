@@ -1,4 +1,5 @@
 
+
 {
     "objects_name": ["Nivara", "Krythos", "Zephyria", 
             "Aetheron", "Lunaris", "Xyphor", 
@@ -29,18 +30,35 @@
                         "Torridon", "Krintor", "Pentarius", "Lebedus", "Fatum", "Tranquilius",
                         "Delphian", "Astras", "Zargora", "Kaleidos", "Sacrum", 
                         "Harmonia", "Sigma", "Criterion"],
+
+        "effects" : {
+            "cutting" : {
+
+            }
+        },
         
         "items" : {
-            "Drill" : {
-                "dmg" : 2,
-                "mass" : 9
+            "Lightsaber" : {
+                "name" : "Lightsaber",
+                "dm" : 8,
+                "mass" : 0.5,
+                "modificator" : "force",
+                "effect" : "cuting" 
             },
-
-            "Spoon" : {
-                "dmg" : 0,
-                "mass" : 0.1
+            "Blastor" : {
+                "name" : "Blastor",
+                "dm" : 6,
+                "mass" : 0.5,
+                "modificator" : "movement",
+                "effect" : "" 
+            },
+            "Trident" : {
+                "name" : "Trident",
+                "dm" : 6,
+                "mass" : 0.5,
+                "modificator" : "force",
+                "effect" : "" 
             }
-
         },
         "systems_count": 5,
         "objects": 6,
@@ -80,7 +98,7 @@
                 "harizma" : 0,
                 "movement" : 2,
                 "body" : 0,
-                "wizart" : 0,
+                "wizart" : 1,
                 "size" : [60, 80],
                 "lenguges" : ["int",  "drl"],
                 "skill" : "nightvision"
@@ -92,7 +110,7 @@
                 "harizma" : 1,
                 "movement" : 2,
                 "body" : 0,
-                "wizart" : 0,
+                "wizart" : 1,
                 "size" : [152, 200],
                 "lenguges" : ["int", "all"],
                 "skill" : "nightvision"
@@ -104,7 +122,7 @@
                 "harizma" : 0,
                 "movement" : 0,
                 "body" : 2,
-                "wizart" : 1,
+                "wizart" : 2,
                 "size" : [160, 180],
                 "lenguges" : ["int",  "drl"],
                 "skill" : "nightvision"
@@ -116,7 +134,7 @@
                 "harizma" : 0,
                 "movement" : 1,
                 "body" : 1,
-                "wizart" : 0,
+                "wizart" : 1,
                 "size" : [60, 150],
                 "lenguges" : ["int",  "all"],
                 "skill" : "nightvision"
@@ -152,7 +170,7 @@
                 "harizma" : 0,
                 "movement" : 0,
                 "body" : 1,
-                "wizart" : 0,
+                "wizart" : 1,
                 "size" : [172, 212],
                 "lenguges" : ["int",  "all"],
                 "skill" : "nightvision"
@@ -164,7 +182,7 @@
                 "harizma" : 0,
                 "movement" : 0,
                 "body" : 0,
-                "wizart" : 0,
+                "wizart" : 1,
                 "size" : [122, 152],
                 "lenguges" : ["int",  "dvf"],
                 "skill" : "nightvision"
@@ -183,29 +201,41 @@
             }
         },
         "class" : {
+            "list" : ["warior", "pailot", "engenier"],
             "warior" : {
-                "force" : 0,
-                "intelect" : 0,
-                "harizma" : 0,
-                "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+                "hits" : 10,
+                "ownership" : [
+                    "warior armor",
+                    "simply wapon",
+                    "warior wapon"
+                ],
+                "skills" : [
+                    "force",
+                    "body"
+                ]
+
             },
-            "bardarian" : {
-                "force" : 0,
-                "intelect" : 0,
-                "harizma" : 0,
-                "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+            "pailot" : {
+                "hits" : 6,
+                "ownership" : [
+                    "simply wapon"
+                ],
+                "skills" : [
+                    "movement",
+                    "body"
+                ]
+
             },
             "engenier" : {
-                "force" : 0,
-                "intelect" : 0,
-                "harizma" : 0,
-                "movement" : 0,
-                "body" : 0,
-                "wizart" : 0
+                "hits" : 6,
+                "ownership" : [
+                    "simply wapon",
+                    "tools set"
+                ],
+                "skills" : [
+                    "movement",
+                    "intelect"
+                ]
             }
         }
     }

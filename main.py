@@ -16,7 +16,8 @@ def game(game_name):
     print("Pass")
 
     while True:
-        command = input(Fore.CYAN + "@: " + Fore.WHITE)
+        p = data_[len(data_) - 1]
+        command = input(f"[{p["player"]["sys"]}/{p["player"]["obj"]}]{Fore.CYAN} @{p["player"]["name"]}: {Fore.WHITE}")
 
         if command == "me":
             i = data_[len(data_) - 1]
@@ -92,6 +93,14 @@ def main():
             caracter.Create.Random_c(command.split()[1])
 
         if command.split()[0] == "edit":
+            if command.split()[2] == "-i":
+                inventory = input(f">>>Введите ваш список снарежения для {command.split()[1]} ")
+                caracter.Edit.inventory(command.split()[1], inventory)
+
+            if command.split()[2] == "-s":
+                size = input(f">>>Введите желаемы рост для {command.split()[1]} ")
+                caracter.Edit.size(command.split()[1], size)
+
             if command.split()[2] == "-r":
                 race = input(f">>>Введите новую рассу \" список расс { data_["races"]["race_list"] } \" для {command.split()[1]} ")
                 caracter.Edit.race(command.split()[1], race)

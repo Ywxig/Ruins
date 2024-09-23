@@ -275,7 +275,8 @@
   {
     "player": {
       "sys": "Entarium",
-      "name": "Jonkler"
+      "name": "Jonkler",
+      "obj" : ""
     }
   }
 ]

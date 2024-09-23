@@ -7,7 +7,13 @@ L_sun = 3.828 * (10 ** 26)
 
 
 '''
+#1 - пустой блок
+#2 - астероид
 
+
+#10 - планета
+#20 - скопление астеройдов
+#30 - космическая база
 '''
 
 class map:
@@ -93,7 +99,7 @@ class map:
             names.remove(system["system_name"])
             
         r_sys = random.choice(systems)
-        player = {"player" : {"sys":r_sys["system_name"], "name" : cr_name}}
+        player = {"player" : {"sys":r_sys["system_name"], "name" : cr_name, "obj" : ""}}
         systems.append(player)
 
         # сохраняем словарь с информацией в фаил соответствующий айди пользователя
