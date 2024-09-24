@@ -36,7 +36,17 @@
 
             }
         },
-        
+
+        "jobs" : {
+            "Capitan" : {
+                "name" : "Capitan"
+            },
+
+            "Mechanic" : {
+                "name" : "Mechanic"
+            }
+        },
+
         "items" : {
             "Lightsaber" : {
                 "name" : "Lightsaber",

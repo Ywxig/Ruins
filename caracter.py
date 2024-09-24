@@ -5,6 +5,15 @@ import math
 
 config = "cfg.json"
 
+def wepons(w : dict) -> list:
+    arr = []
+    try:
+        for i in w:
+            arr.append(i["name"])
+        return arr
+    except:
+        return []
+
 def modificator(a) -> int:
     if a in [8, 9]:
         return -1
@@ -14,6 +23,7 @@ def modificator(a) -> int:
         return 1
     if a in [14, 15]:
         return 2
+    
 class Create:
 
     def Random_c(name) -> dict:
@@ -69,14 +79,14 @@ class Create:
         with open(f"caracters/{name}.json", 'w', encoding="utf-8") as file:
             json.dump(arr, file, indent=2)
         
-        print(f"\nname: {arr["name"]}\nclass: {arr["class"]}\nsize: {arr["size"]}\nHP: {arr["hp"]}\narmor class: {arr['ac']}\nownership: {arr["ownership"]}\nskills: {arr["skills"]}\n\ndescription: {arr['description']} \n\nmony: {arr["mony"]} \nrace: {arr["race"]} \nlavel: {arr["lavel"]}\nproficiency: {arr["proficiency"]} \n\ncaracteristics: \n\tforce: {arr["caracteristics"]["force"]} \n\tintelect: {arr["caracteristics"]["intelect"]} \n\tharizma: {arr["caracteristics"]["harizma"]}  \n\tmovement: {arr["caracteristics"]["movement"]} \n\tbody: {arr["caracteristics"]["body"]} \n\twizart: {arr["caracteristics"]["wizart"]} \n\nmodifications: \n\tforce: {arr["modifications"]["force"]} \n\tintelect: {arr["modifications"]["intelect"]} \n\tharizma: {arr["modifications"]["harizma"]}  \n\tmovement: {arr["modifications"]["movement"]} \n\tbody: {arr["modifications"]["body"]} \n\twizart: {arr["modifications"]["wizart"]}\ninventory: {arr["inventory"]}")
+        print(f"\nname: {arr["name"]}\nclass: {arr["class"]}\nsize: {arr["size"]}\nHP: {arr["hp"]}\narmor class: {arr['ac']}\nownership: {arr["ownership"]}\nskills: {arr["skills"]}\n\ndescription: {arr['description']} \n\nmony: {arr["mony"]} \nrace: {arr["race"]} \nlavel: {arr["lavel"]}\nproficiency: {arr["proficiency"]} \n\ncaracteristics: \n\tforce: {arr["caracteristics"]["force"]} \n\tintelect: {arr["caracteristics"]["intelect"]} \n\tharizma: {arr["caracteristics"]["harizma"]}  \n\tmovement: {arr["caracteristics"]["movement"]} \n\tbody: {arr["caracteristics"]["body"]} \n\twizart: {arr["caracteristics"]["wizart"]} \n\nmodifications: \n\tforce: {arr["modifications"]["force"]} \n\tintelect: {arr["modifications"]["intelect"]} \n\tharizma: {arr["modifications"]["harizma"]}  \n\tmovement: {arr["modifications"]["movement"]} \n\tbody: {arr["modifications"]["body"]} \n\twizart: {arr["modifications"]["wizart"]}\ninventory: { wepons(arr["inventory"]) }")
 
 class Show:
 
     def cerecter(name : str) -> None:
         file = open(f"caracters/{name}.json", "r", encoding="utf-8").read()
         arr = json.loads(file)        
-        print(f"\nname: {arr["name"]}\nclass: {arr["class"]}\nsize: {arr["size"]}\nHP: {arr["hp"]}\narmor class: {arr['ac']}\nownership: {arr["ownership"]}\nskills: {arr["skills"]}\n\ndescription: {arr['description']} \n\nmony: {arr["mony"]} \nrace: {arr["race"]} \nlavel: {arr["lavel"]}\nproficiency: {arr["proficiency"]} \n\ncaracteristics: \n\tforce: {arr["caracteristics"]["force"]} \n\tintelect: {arr["caracteristics"]["intelect"]} \n\tharizma: {arr["caracteristics"]["harizma"]}  \n\tmovement: {arr["caracteristics"]["movement"]} \n\tbody: {arr["caracteristics"]["body"]} \n\twizart: {arr["caracteristics"]["wizart"]} \n\nmodifications: \n\tforce: {arr["modifications"]["force"]} \n\tintelect: {arr["modifications"]["intelect"]} \n\tharizma: {arr["modifications"]["harizma"]}  \n\tmovement: {arr["modifications"]["movement"]} \n\tbody: {arr["modifications"]["body"]} \n\twizart: {arr["modifications"]["wizart"]}\ninventory: {arr["inventory"]}")
+        print(f"\nname: {arr["name"]}\nclass: {arr["class"]}\nsize: {arr["size"]}\nHP: {arr["hp"]}\narmor class: {arr['ac']}\nownership: {arr["ownership"]}\nskills: {arr["skills"]}\n\ndescription: {arr['description']} \n\nmony: {arr["mony"]} \nrace: {arr["race"]} \nlavel: {arr["lavel"]}\nproficiency: {arr["proficiency"]} \n\ncaracteristics: \n\tforce: {arr["caracteristics"]["force"]} \n\tintelect: {arr["caracteristics"]["intelect"]} \n\tharizma: {arr["caracteristics"]["harizma"]}  \n\tmovement: {arr["caracteristics"]["movement"]} \n\tbody: {arr["caracteristics"]["body"]} \n\twizart: {arr["caracteristics"]["wizart"]} \n\nmodifications: \n\tforce: {arr["modifications"]["force"]} \n\tintelect: {arr["modifications"]["intelect"]} \n\tharizma: {arr["modifications"]["harizma"]}  \n\tmovement: {arr["modifications"]["movement"]} \n\tbody: {arr["modifications"]["body"]} \n\twizart: {arr["modifications"]["wizart"]}\ninventory: { wepons(arr["inventory"]) }")
         
 
 class Edit:
