@@ -1,282 +1,810 @@
 [
   {
     "star": {
-      "radius": 657094,
-      "teperatur": 14561,
-      "L": 5.53187967298732e+22,
-      "mass": 4.12888466411951e-05,
-      "name": "Noxara"
-    },
-    "ojects": [
-      {
-        "objects_name": "Quantara",
-        "type": "Planet",
-        "radius": 64309,
-        "ro": 5972,
-        "mass": 6434875608.871276,
-        "population": 0,
-        "ore": 557023968150888.1
-      },
-      {
-        "objects_name": "Nebulon",
-        "type": "Asteroid",
-        "radius": 154,
-        "ro": 5354,
-        "mass": 13814898.177958623,
-        "population": 0,
-        "ore": 10708997.367945774
-      },
-      {
-        "objects_name": "Falcoris",
-        "type": "Planet",
-        "radius": 126062,
-        "ro": 5728,
-        "mass": 12098619068.472958,
-        "population": 0,
-        "ore": 4195765355763228.5
-      }
-    ],
-    "system_name": "Criterion",
-    "id": "",
-    "links": [
-      2,
-      0
-    ]
-  },
-  {
-    "star": {
-      "radius": 953476,
-      "teperatur": 7945,
-      "L": 1.0324001337893173e+22,
-      "mass": 7.705628704204488e-06,
+      "radius": 724418,
+      "teperatur": 20683,
+      "L": 2.7370675002280245e+23,
+      "mass": 0.000204289259608003,
       "name": "Orionis"
     },
     "ojects": [
       {
-        "objects_name": "Elysium",
-        "type": "Asteroid",
-        "radius": 115,
-        "ro": 6182,
-        "mass": 11911746.481155153,
-        "population": 0,
-        "ore": 4459438.411893151
-      },
-      {
-        "objects_name": "Nivara",
-        "type": "Asteroid",
-        "radius": 167,
-        "ro": 6932,
-        "mass": 19396511.391318947,
-        "population": 0,
-        "ore": 13656394.775488526
-      },
-      {
-        "objects_name": "Xyphor",
+        "objects_name": "Nyxaris",
         "type": "Planet",
-        "radius": 29496,
-        "ro": 6314,
-        "mass": 3120443351.3148613,
+        "radius": 55591,
+        "ro": 5881,
+        "mass": 5477775969.316168,
         "population": 0,
-        "ore": 53746227664276.64
+        "ore": 359809041957468.8,
+        "materials": [
+          "copper_ore",
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": 33,
+        "races": [],
+        "history": [],
+        "citys": []
       },
       {
-        "objects_name": "Cythara",
-        "type": "Planet",
-        "radius": 30738,
-        "ro": 5424,
-        "mass": 2793469202.7962537,
+        "objects_name": "Krypton",
+        "type": "Asteroid",
+        "radius": 246,
+        "ro": 5926,
+        "mass": 24425606.421507124,
         "population": 0,
-        "ore": 60825464257396.16
+        "ore": 43650776.18725732,
+        "materials": [
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -93,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Aquilae",
+        "type": "Asteroid",
+        "radius": 204,
+        "ro": 5368,
+        "mass": 18348107.46854337,
+        "population": 0,
+        "ore": 24892994.98358935,
+        "materials": [
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": 17,
+        "races": [],
+        "history": [],
+        "citys": []
       },
       {
         "objects_name": "Pyrrhon",
         "type": "Asteroid",
-        "radius": 91,
-        "ro": 6686,
-        "mass": 10194275.476549458,
+        "radius": 140,
+        "ro": 5536,
+        "mass": 12985919.841270575,
         "population": 0,
-        "ore": 2209585.5763877593
-      },
-      {
-        "objects_name": "Vesperis",
-        "type": "Planet",
-        "radius": 89865,
-        "ro": 6468,
-        "mass": 9738883944.716953,
-        "population": 0,
-        "ore": 1519953667352941.2
+        "ore": 8045828.225353699,
+        "materials": [
+          "titan_ore",
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": 59,
+        "races": [],
+        "history": [],
+        "citys": []
       }
     ],
-    "system_name": "Terracium",
+    "system_name": "Epsilon",
     "id": "",
     "links": [
-      3,
       0,
+      6,
+      5,
+      3
+    ]
+  },
+  {
+    "star": {
+      "radius": 205037,
+      "teperatur": 23150,
+      "L": 3.4412907992518427e+22,
+      "mass": 2.5685108219524127e-05,
+      "name": "Stellaris"
+    },
+    "ojects": [
+      {
+        "objects_name": "Nebulon",
+        "type": "Asteroid",
+        "radius": 32,
+        "ro": 5703,
+        "mass": 3057749.8288507885,
+        "population": 0,
+        "ore": 96080.79420130831,
+        "materials": [
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": 42,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Astryxis",
+        "type": "Asteroid",
+        "radius": 158,
+        "ro": 4299,
+        "mass": 11380808.94511807,
+        "population": 0,
+        "ore": 11565326.82915499,
+        "materials": [
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": 24,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Xyphor",
+        "type": "Asteroid",
+        "radius": 165,
+        "ro": 5544,
+        "mass": 15326950.910921594,
+        "population": 0,
+        "ore": 13171598.439073244,
+        "materials": [
+          "iron_ore",
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": -39,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Pyralis",
+        "type": "Planet",
+        "radius": 84998,
+        "ro": 4050,
+        "mass": 5767828395.188225,
+        "population": 0,
+        "ore": 1286129602365798.5,
+        "materials": [
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": 28,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Helion",
+        "type": "Asteroid",
+        "radius": 45,
+        "ro": 6382,
+        "mass": 4811914.635650414,
+        "population": 0,
+        "ore": 267192.45518781187,
+        "materials": [
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -91,
+        "races": [],
+        "history": [],
+        "citys": []
+      }
+    ],
+    "system_name": "Delphirium",
+    "id": "",
+    "links": [
+      7
+    ]
+  },
+  {
+    "star": {
+      "radius": 516304,
+      "teperatur": 12661,
+      "L": 1.9522522354653988e+22,
+      "mass": 1.4571221342479466e-05,
+      "name": "Stellaris"
+    },
+    "ojects": [
+      {
+        "objects_name": "Stygian",
+        "type": "Planet",
+        "radius": 36351,
+        "ro": 5050,
+        "mass": 3075787597.2306395,
+        "population": 0,
+        "ore": 100602251739502.19,
+        "materials": [
+          "iron_ore",
+          "iron_ore",
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": 77,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Quantara",
+        "type": "Planet",
+        "radius": 76496,
+        "ro": 6885,
+        "mass": 8824523654.217056,
+        "population": 0,
+        "ore": 937507590561143.1,
+        "materials": [
+          "iron_ore",
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": 45,
+        "races": [],
+        "history": [],
+        "citys": []
+      }
+    ],
+    "system_name": "Demetra",
+    "id": "",
+    "links": [
+      6,
+      4,
+      9,
+      1
+    ]
+  },
+  {
+    "star": {
+      "radius": 384634,
+      "teperatur": 27239,
+      "L": 2.3212017842852026e+23,
+      "mass": 0.00017324987194246923,
+      "name": "Orionis"
+    },
+    "ojects": [
+      {
+        "objects_name": "Serenon",
+        "type": "Planet",
+        "radius": 26842,
+        "ro": 6798,
+        "mass": 3057346297.55762,
+        "population": 0,
+        "ore": 40504495732232.195,
+        "materials": [
+          "titan_ore",
+          "iron_ore",
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": 78,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Valyrian",
+        "type": "Planet",
+        "radius": 53259,
+        "ro": 6124,
+        "mass": 5464831686.049533,
+        "population": 0,
+        "ore": 316400846701426.25,
+        "materials": [
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": -17,
+        "races": [],
+        "history": [],
+        "citys": []
+      }
+    ],
+    "system_name": "Kratos",
+    "id": "",
+    "links": [
+      0,
+      3,
       4
     ]
   },
   {
     "star": {
-      "radius": 638095,
-      "teperatur": 29408,
-      "L": 8.679317111280643e+23,
-      "mass": 0.0006478069197850906,
-      "name": "Stellaris"
-    },
-    "ojects": [
-      {
-        "objects_name": "Astryxis",
-        "type": "Planet",
-        "radius": 77863,
-        "ro": 6142,
-        "mass": 8012896727.501067,
-        "population": 0,
-        "ore": 988671492496642.2
-      },
-      {
-        "objects_name": "Oceandor",
-        "type": "Asteroid",
-        "radius": 122,
-        "ro": 4945,
-        "mass": 10108220.970582327,
-        "population": 0,
-        "ore": 5324344.42104667
-      },
-      {
-        "objects_name": "Lunaris",
-        "type": "Asteroid",
-        "radius": 83,
-        "ro": 6826,
-        "mass": 9492770.40337347,
-        "population": 0,
-        "ore": 1676567.0493769369
-      },
-      {
-        "objects_name": "Xeraphis",
-        "type": "Planet",
-        "radius": 110109,
-        "ro": 4020,
-        "mass": 7416473890.593901,
-        "population": 0,
-        "ore": 2795934988656994.5
-      }
-    ],
-    "system_name": "Varedon",
-    "id": "",
-    "links": [
-      2
-    ]
-  },
-  {
-    "star": {
-      "radius": 694817,
-      "teperatur": 13448,
-      "L": 4.500125104573257e+22,
-      "mass": 3.358803630820463e-05,
-      "name": "Novae"
-    },
-    "ojects": [
-      {
-        "objects_name": "Celestra",
-        "type": "Planet",
-        "radius": 120720,
-        "ro": 6773,
-        "mass": 13699632054.41296,
-        "population": 0,
-        "ore": 3684650448320651.5
-      },
-      {
-        "objects_name": "Vortexia",
-        "type": "Asteroid",
-        "radius": 229,
-        "ro": 4516,
-        "mass": 17327584.13337085,
-        "population": 0,
-        "ore": 35212194.84481126
-      }
-    ],
-    "system_name": "Entarium",
-    "id": "",
-    "links": [
-      0
-    ]
-  },
-  {
-    "star": {
-      "radius": 573881,
-      "teperatur": 4748,
-      "L": 4.770231414933452e+20,
-      "mass": 3.560405594068855e-07,
+      "radius": 826983,
+      "teperatur": 25573,
+      "L": 8.336289586920798e+23,
+      "mass": 0.0006222040294761007,
       "name": "Orionis"
     },
     "ojects": [
       {
-        "objects_name": "Aetheron",
+        "objects_name": "Ravenis",
         "type": "Asteroid",
-        "radius": 167,
-        "ro": 4052,
-        "mass": 11337949.243742695,
+        "radius": 75,
+        "ro": 4865,
+        "mass": 6113539.3038857365,
         "population": 0,
-        "ore": 13656394.775488526
+        "ore": 1237002.1073509809,
+        "materials": [
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -80,
+        "races": [],
+        "history": [],
+        "citys": []
       },
       {
-        "objects_name": "Krypton",
+        "objects_name": "Thaloria",
         "type": "Planet",
-        "radius": 115209,
-        "ro": 4748,
-        "mass": 9165279592.715845,
+        "radius": 41943,
+        "ro": 5414,
+        "mass": 3804751899.2254043,
         "population": 0,
-        "ore": 3202711614160351.0
+        "ore": 154538639632874.1,
+        "materials": [
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -37,
+        "races": [],
+        "history": [],
+        "citys": []
       },
       {
-        "objects_name": "Xandria",
+        "objects_name": "Falcoris",
         "type": "Asteroid",
-        "radius": 167,
-        "ro": 6159,
-        "mass": 17233570.926014625,
+        "radius": 99,
+        "ro": 5775,
+        "mass": 9579344.319325997,
         "population": 0,
-        "ore": 13656394.775488526
+        "ore": 2845065.2628398207,
+        "materials": [
+          "titan_ore",
+          "titan_ore",
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": -63,
+        "races": [],
+        "history": [],
+        "citys": []
       },
       {
-        "objects_name": "Zephyron",
-        "type": "Planet",
-        "radius": 29075,
-        "ro": 4501,
-        "mass": 2192690509.975774,
-        "population": 0,
-        "ore": 51477539893694.16
-      },
-      {
-        "objects_name": "Draconis",
-        "type": "Planet",
-        "radius": 53225,
-        "ro": 4474,
-        "mass": 3989883826.3960266,
-        "population": 0,
-        "ore": 315795272280808.44
-      },
-      {
-        "objects_name": "Stellaris",
+        "objects_name": "Lunaris",
         "type": "Asteroid",
-        "radius": 167,
-        "ro": 5145,
-        "mass": 14396285.503222154,
+        "radius": 231,
+        "ro": 5243,
+        "mass": 20292728.18837422,
         "population": 0,
-        "ore": 13656394.775488526
+        "ore": 36142866.11681698,
+        "materials": [
+          "iron_ore",
+          "iron_ore",
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": 35,
+        "races": [],
+        "history": [],
+        "citys": []
       }
     ],
-    "system_name": "Delphian",
+    "system_name": "Estellion",
     "id": "",
     "links": [
-      4,
-      2
+      8
     ]
   },
   {
-    "player": {
-      "sys": "Entarium",
-      "name": "Jonkler",
-      "obj" : ""
+    "star": {
+      "radius": 891177,
+      "teperatur": 7036,
+      "L": 5.547332226454693e+21,
+      "mass": 4.140418141853032e-06,
+      "name": "Celestia"
+    },
+    "ojects": [
+      {
+        "objects_name": "Aurumis",
+        "type": "Planet",
+        "radius": 76199,
+        "ro": 6619,
+        "mass": 8450652698.589183,
+        "population": 0,
+        "ore": 926630155313785.4,
+        "materials": [
+          "iron_ore",
+          "copper_ore",
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": -59,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Titanis",
+        "type": "Asteroid",
+        "radius": 30,
+        "ro": 5934,
+        "mass": 2982753.729024293,
+        "population": 0,
+        "ore": 79168.13487046277,
+        "materials": [
+          "copper_ore",
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": 67,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Draconara",
+        "type": "Asteroid",
+        "radius": 190,
+        "ro": 4460,
+        "mass": 14198323.27814395,
+        "population": 0,
+        "ore": 20111638.410240896,
+        "materials": [
+          "iron_ore",
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -51,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Vesperis",
+        "type": "Asteroid",
+        "radius": 11,
+        "ro": 6373,
+        "mass": 1174587.0389045614,
+        "population": 0,
+        "ore": 3902.69583379948,
+        "materials": [
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": 5,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Nivara",
+        "type": "Planet",
+        "radius": 74969,
+        "ro": 6865,
+        "mass": 8623247677.207846,
+        "population": 0,
+        "ore": 882477756182376.8,
+        "materials": [
+          "iron_ore",
+          "iron_ore",
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -48,
+        "races": [],
+        "history": [],
+        "citys": []
+      }
+    ],
+    "system_name": "Terracium",
+    "id": "",
+    "links": [
+      5,
+      8
+    ]
+  },
+  {
+    "star": {
+      "radius": 354533,
+      "teperatur": 9513,
+      "L": 2.9338386962397497e+21,
+      "mass": 2.189758692521085e-06,
+      "name": "Lumina"
+    },
+    "ojects": [
+      {
+        "objects_name": "Coriolis",
+        "type": "Planet",
+        "radius": 48026,
+        "ro": 5179,
+        "mass": 4167455087.7779746,
+        "population": 0,
+        "ore": 231999935010117.47,
+        "materials": [
+          "titan_ore",
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": -22,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Oberon",
+        "type": "Planet",
+        "radius": 117071,
+        "ro": 5677,
+        "mass": 11135682064.929745,
+        "population": 0,
+        "ore": 3360520876863293.0,
+        "materials": [
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": 70,
+        "races": [],
+        "history": [],
+        "citys": []
+      }
+    ],
+    "system_name": "Phoenix-9",
+    "id": "",
+    "links": [
+      5,
+      10
+    ]
+  },
+  {
+    "star": {
+      "radius": 270991,
+      "teperatur": 20334,
+      "L": 3.5781119653074155e+22,
+      "mass": 2.6706314116341358e-05,
+      "name": "Lumina"
+    },
+    "ojects": [
+      {
+        "objects_name": "Zephyria",
+        "type": "Asteroid",
+        "radius": 191,
+        "ro": 5427,
+        "mass": 17367679.233211067,
+        "population": 0,
+        "ore": 20430864.855110604,
+        "materials": [
+          "copper_ore",
+          "titan_ore",
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": -51,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Aetheron",
+        "type": "Asteroid",
+        "radius": 108,
+        "ro": 6112,
+        "mass": 11060014.636074709,
+        "population": 0,
+        "ore": 3693668.5005163113,
+        "materials": [
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -60,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Seraphex",
+        "type": "Planet",
+        "radius": 34737,
+        "ro": 4073,
+        "mass": 2370583839.0589876,
+        "population": 0,
+        "ore": 87788077746248.1,
+        "materials": [
+          "copper_ore",
+          "copper_ore",
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": 26,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Galadria",
+        "type": "Asteroid",
+        "radius": 202,
+        "ro": 5042,
+        "mass": 17064863.211726647,
+        "population": 0,
+        "ore": 24168002.52597709,
+        "materials": [
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -97,
+        "races": [],
+        "history": [],
+        "citys": []
+      }
+    ],
+    "system_name": "Zarion",
+    "id": "",
+    "links": [
+      8,
+      9
+    ]
+  },
+  {
+    "star": {
+      "radius": 300535,
+      "teperatur": 27312,
+      "L": 1.4323760239011915e+23,
+      "mass": 0.00010690968979707356,
+      "name": "Noxara"
+    },
+    "ojects": [
+      {
+        "objects_name": "Draconis",
+        "type": "Planet",
+        "radius": 33569,
+        "ro": 5018,
+        "mass": 2822394139.5731688,
+        "population": 0,
+        "ore": 79227112112936.78,
+        "materials": [
+          "titan_ore",
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": 62,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Erebon",
+        "type": "Planet",
+        "radius": 101152,
+        "ro": 5320,
+        "mass": 9016431904.588087,
+        "population": 0,
+        "ore": 2167614443128390.0,
+        "materials": [
+          "copper_ore",
+          "iron_ore",
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": 59,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Cythara",
+        "type": "Asteroid",
+        "radius": 204,
+        "ro": 5232,
+        "mass": 17883252.286776993,
+        "population": 0,
+        "ore": 24892994.98358935,
+        "materials": [
+          "copper_ore",
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": -24,
+        "races": [],
+        "history": [],
+        "citys": []
+      }
+    ],
+    "system_name": "Tanaris",
+    "id": "",
+    "links": [
+      2,
+      4,
+      7
+    ]
+  },
+  {
+    "star": {
+      "radius": 157027,
+      "teperatur": 28319,
+      "L": 4.519737739562582e+22,
+      "mass": 3.3734421104363205e-05,
+      "name": "Stellaris"
+    },
+    "ojects": [
+      {
+        "objects_name": "Stellaris",
+        "type": "Asteroid",
+        "radius": 51,
+        "ro": 5925,
+        "mass": 5062990.72052531,
+        "population": 0,
+        "ore": 388953.0466185836,
+        "materials": [
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": 31,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Xeraphis",
+        "type": "Asteroid",
+        "radius": 85,
+        "ro": 6737,
+        "mass": 9594759.06727961,
+        "population": 0,
+        "ore": 1800708.5491601094,
+        "materials": [
+          "titan_ore",
+          "iron_ore"
+        ],
+        "tension": 0,
+        "temp": 76,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Vortexia",
+        "type": "Asteroid",
+        "radius": 186,
+        "ro": 4503,
+        "mass": 14033418.985361919,
+        "population": 0,
+        "ore": 18867983.247407652,
+        "materials": [
+          "titan_ore",
+          "copper_ore",
+          "copper_ore"
+        ],
+        "tension": 0,
+        "temp": 67,
+        "races": [],
+        "history": [],
+        "citys": []
+      },
+      {
+        "objects_name": "Mythara",
+        "type": "Planet",
+        "radius": 12308,
+        "ro": 5042,
+        "mass": 1039773942.6234238,
+        "population": 0,
+        "ore": 3905000343041.9077,
+        "materials": [
+          "iron_ore",
+          "titan_ore"
+        ],
+        "tension": 0,
+        "temp": 57,
+        "races": [],
+        "history": [],
+        "citys": []
+      }
+    ],
+    "system_name": "Eidos",
+    "id": "",
+    "links": [
+      2,
+      9
+    ]
+  },
+  {
+    "meta": {
+      "player_sys": "Zarion",
+      "player_name": "Jonkler",
+      "player_obj": "",
+      "history": []
     }
   }
 ]

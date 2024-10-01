@@ -1,6 +1,7 @@
 
 
 {
+    "lastname_list" : ["he'caru", "Jaems", "Tiberii", "Niota"],
     "objects_name": ["Nivara", "Krythos", "Zephyria", 
             "Aetheron", "Lunaris", "Xyphor", 
             "Thaloria", "Vortexia", "Oberon", 
@@ -37,6 +38,39 @@
             }
         },
 
+        "materials" : {
+            "list" : ["iron_ore", "copper_ore", "titan_ore"],
+            "iron_ore" : {
+                "name" : "Iron ore",
+                "mass" : 7800000, 
+                "ro" : 7.8,
+                "elemnts" : {
+                    "Fe" : 0.8,
+                    "O" : 0.2
+                }
+            },
+
+            "copper_ore" : {
+                "name" : "Сopper ore",
+                "mass" : 5800000, 
+                "ro" : 5.8,
+                "elemnts" : {
+                    "Cu" : 0.6,
+                    "O" : 0.4
+                }
+            },
+
+            "titan_ore" : {
+                "name" : "Titan ore",
+                "mass" : 4330000, 
+                "ro" : 4.33,
+                "elemnts" : {
+                    "Ti" : 0.8,
+                    "O" : 0.2
+                }
+            }
+        },
+
         "jobs" : {
             "Capitan" : {
                 "name" : "Capitan"
@@ -70,8 +104,8 @@
                 "effect" : "" 
             }
         },
-        "systems_count": 5,
-        "objects": 6,
+        "systems_count": 10,
+        "objects": 5,
         "ships" : {
             "Milan" : "    &    \n || O || \n @@@&@@@ \n  ^ & ^  \n        \n"
         },
@@ -87,6 +121,75 @@
                 "vision" : 60
             }
         },
+        "citys_name" : [
+            "York Town", "New Dalas", "Nabu", "Mustafar", "Tinaxy"
+        ],
+        "history" : {
+            "new_race" : {
+                "text" : "зарадлась новая расса: ",
+                "bafs" : {
+                    "population" : 20
+                },
+                "conditions" : {
+                    "population" : 4
+                }
+            },
+
+            "new_city" : {
+                "text" : "основан новый город: ",
+                "bafs" : {
+                    
+                },
+                "conditions" : {
+                    "population" : 400
+                }
+            }
+        }, 
+        "ideas" : {
+            "liberalism" : {
+                "name" : "liberalism",
+                "bafs" : {
+                    "support alliance" : 0,
+                    "support war" : -1,
+                    "support industry" : 1,
+                    "tension" : 0,
+                    "tension global" : 0
+                }
+            },
+
+            "communism" : {
+                "name" : "communism",
+                "bafs" : {
+                    "support alliance" : 0,
+                    "support war" : 0,
+                    "support industry" : 1,
+                    "tension" : 0,
+                    "tension global" : 0
+                }
+            },
+
+            "dimocracy" : {
+                "name" : "dimocracy",
+                "bafs" : {
+                    "support alliance" : 1,
+                    "support war" : 0,
+                    "support industry" : 0,
+                    "tension" : 0,
+                    "tension global" : 0
+                }
+            },
+
+            "facism" : {
+                "name" : "facism",
+                "bafs" : {
+                    "support alliance" : 1,
+                    "support war" : 1,
+                    "support industry" : 1,
+                    "tension" : -0.02,
+                    "tension global" : -0.01
+                }
+            }
+        },
         "races" : {
             "race_list" : ["humans", "kobalds", "tabaxis", "lizardfolgs", "dvarfs", "zaichegons", "sergals", "protogens", "gnollys", "lilmotits"],
             
@@ -99,7 +202,12 @@
                 "wizart" : 1,
                 "size" : [152, 183],
                 "lenguges" : ["int", "all"],
-                "skill" : ""
+                "skill" : "",
+                "names" : [],
+                "survival": {
+                    "temp-min" : -60,
+                    "temp-max" : 60 
+                }
             },
 
             "kobalds" : {
@@ -111,7 +219,12 @@
                 "wizart" : 1,
                 "size" : [60, 80],
                 "lenguges" : ["int",  "drl"],
-                "skill" : "nightvision"
+                "skill" : "nightvision",
+                "names" : [],
+                "survival": {
+                    "temp-min" : -40,
+                    "temp-max" : 80 
+                }
             },
 
             "tabaxis" : {
@@ -123,7 +236,12 @@
                 "wizart" : 1,
                 "size" : [152, 200],
                 "lenguges" : ["int", "all"],
-                "skill" : "nightvision"
+                "skill" : "nightvision",
+                "names" : ["Sulu", "Kirk", "Uhura"],
+                "survival": {
+                    "temp-min" : -70,
+                    "temp-max" : 70 
+                }
             },
 
             "lizardfolgs" : {
@@ -135,7 +253,12 @@
                 "wizart" : 2,
                 "size" : [160, 180],
                 "lenguges" : ["int",  "drl"],
-                "skill" : "nightvision"
+                "skill" : "nightvision",
+                "names" : ["Sulu", "Kirk", "Uhura"],
+                "survival": {
+                    "temp-min" : -70,
+                    "temp-max" : 70 
+                }
             },
 
             "zaichegons" : {
@@ -147,7 +270,12 @@
                 "wizart" : 1,
                 "size" : [60, 150],
                 "lenguges" : ["int",  "all"],
-                "skill" : "nightvision"
+                "skill" : "nightvision",
+                "names" : ["Sulu", "Kirk", "Uhura"],
+                "survival": {
+                    "temp-min" : -60,
+                    "temp-max" : 60 
+                }
             },
 
             "sergals" : {
@@ -159,7 +287,12 @@
                 "wizart" : 0,
                 "size" : [170, 210],
                 "lenguges" : ["int"],
-                "skill" : ""
+                "skill" : "",
+                "names" : ["Sulu", "Kirk", "Uhura"],
+                "survival": {
+                    "temp-min" : -75,
+                    "temp-max" : 70 
+                }
             },
 
             "dvarfs" : {
@@ -171,7 +304,12 @@
                 "wizart" : 0,
                 "size" : [122, 152],
                 "lenguges" : ["int",  "dvf"],
-                "skill" : ""
+                "skill" : "",
+                "names" : ["Sulu", "Kirk", "Uhura"],
+                "survival": {
+                    "temp-min" : -70,
+                    "temp-max" : 60 
+                }
             },
 
             "protogens" : {
@@ -183,7 +321,12 @@
                 "wizart" : 1,
                 "size" : [172, 212],
                 "lenguges" : ["int",  "all"],
-                "skill" : "nightvision"
+                "skill" : "nightvision",
+                "names" : ["Sulu", "Kirk", "Uhura"],
+                "survival": {
+                    "temp-min" : -200,
+                    "temp-max" : 200 
+                }
             },
 
             "gnollys" : {
@@ -195,7 +338,12 @@
                 "wizart" : 1,
                 "size" : [122, 152],
                 "lenguges" : ["int",  "dvf"],
-                "skill" : "nightvision"
+                "skill" : "nightvision",
+                "names" : ["Sulu", "Kirk", "Uhura"],
+                "survival": {
+                    "temp-min" : -60,
+                    "temp-max" : 60 
+                }
             },
 
             "lilmotits" : {
@@ -207,7 +355,12 @@
                 "wizart" : 0,
                 "size" : [172, 212],
                 "lenguges" : ["int",  "all"],
-                "skill" : ""
+                "skill" : "",
+                "names" : ["Sulu", "Kirk", "Uhura"],
+                "survival": {
+                    "temp-min" : -65,
+                    "temp-max" : 75 
+                }
             }
         },
         "class" : {

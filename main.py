@@ -13,18 +13,21 @@ def game(game_name):
     file_ = open(f, "r", encoding="utf-8").read()
     data_ = json.loads(file_)
 
-    print("Pass")
+    file_ = open("cfg.json", "r", encoding="utf-8").read()
+    cfg = json.loads(file_)
+
+    print(cfg["load_succesfull"])
 
     while True:
         p = data_[len(data_) - 1]
-        command = input(f"[{p["player"]["sys"]}/{p["player"]["obj"]}]{Fore.CYAN} @{p["player"]["name"]}: {Fore.WHITE}")
+        command = input(f"[{p["meta"]["player_sys"]}/{p["meta"]["player_obj"]}]{Fore.CYAN} @{p["meta"]["player_name"]}: {Fore.WHITE}")
 
         if command == "me":
             i = data_[len(data_) - 1]
 
-            file_ = open(f"caracters/{i["player"]["name"]}.json", "r", encoding="utf-8").read()
+            file_ = open(f"caracters/{i["meta"]["player_name"]}.json", "r", encoding="utf-8").read()
             data = json.loads(file_)
-            print(f"name: {data["name"]} \n$: {data["mony"]} \n•: {i["player"]["sys"]}")
+            caracter.Show.cerecter(i["meta"]["player_name"])
 
 
         if command == "help":
@@ -63,7 +66,7 @@ def main():
 
     while True:
         
-        command = input(">>> ")
+        command = input(f"{Fore.GREEN}>>>{Fore.WHITE} ")
 
         if command == "/sys":
             game_name = input(">>> ")
@@ -82,6 +85,9 @@ def main():
             world.map.global_map(command.split()[1], cr_name = cr)
             print(f"Голактика готова к вашему приключению капитан! Голактика сохранина по имени { command.split()[1] }")
             game(game_name = command.split()[1])
+
+        if command.split()[0] == "sim":  
+            world.map.Simulate.Global(gelaxy = command.split()[1], loops = int(command.split()[2]))
 
         if command.split()[0] == "load":  
             game(game_name = command.split()[1])

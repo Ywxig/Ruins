@@ -25,13 +25,79 @@ def modificator(a) -> int:
         return 2
     
 class Create:
-
+    
+    def choise_idea(mod : dict, race : str) -> str:
+        
+        if mod["force"] + mod["harizma"] > 2:
+            return "facism"
+        
+        if mod["intelect"] + mod["harizma"] > 2:
+            return "liberalism"
+        
+        if mod["intelect"] + mod["harizma"] > 2:
+            return "communism"
+        else:
+            return "dimocracy"
+    def leder(races : list) -> dict:
+        file = open(config, "r", encoding="utf-8").read()
+        data = json.loads(file)
+        
+        r_race = random.choice(races)
+        
+        arr = {}
+        modifications = {}
+        modifications["force"] = data["races"][r_race]["force"]
+        modifications["intelect"] = data["races"][r_race]["intelect"]
+        modifications["harizma"] = data["races"][r_race]["harizma"]
+        modifications["movement"] = data["races"][r_race]["movement"]
+        modifications["body"] = data["races"][r_race]["body"]
+        modifications["wizart"] = data["races"][r_race]["wizart"]
+        
+        arr["modifications"] = modifications
+        arr["race"] = r_race
+        arr["hp"] = 10 + modifications["body"]
+        arr["ac"] = 10 + modifications["movement"]
+        
+        arr["idea"] = Create.choise_idea(modifications, arr["race"])
+        
+        
+        
+        arr["name"] = random.choice(data["races"][r_race]["names"]) + " " + random.choice(data["lastname_list"])        
+        return arr
+    
+    def simply_c() -> dict:
+        file = open(config, "r", encoding="utf-8").read()
+        data = json.loads(file)
+        
+        r_race = random.choice(data["races"]["race_list"])
+        
+        arr = {}
+        modifications = {}
+        modifications["force"] = data["races"][r_race]["force"]
+        modifications["intelect"] = data["races"][r_race]["intelect"]
+        modifications["harizma"] = data["races"][r_race]["harizma"]
+        modifications["movement"] = data["races"][r_race]["movement"]
+        modifications["body"] = data["races"][r_race]["body"]
+        modifications["wizart"] = data["races"][r_race]["wizart"]
+        
+        arr["modifications"] = modifications
+        
+        arr["hp"] = 10 + modifications["body"]
+        arr["ac"] = 10 + modifications["movement"]
+        
+        arr["race"] = r_race
+        
+        arr["name"] = random.choice(data["races"][r_race]["names"]) + " " + random.choice(data["lastname_list"])        
+        return arr
+    
     def Random_c(name) -> dict:
         file = open(config, "r", encoding="utf-8").read()
         data = json.loads(file)
 
         r_race = random.choice(data["races"]["race_list"])
         r_class = random.choice(data["class"]["list"])
+
+        
 
         arr = {}
         arr["name"] = name
