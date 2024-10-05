@@ -7,19 +7,43 @@ from colorama import Fore
 sigma = 5.67 * (10 ** -8) 
 L_sun = 3.828 * (10 ** 26)
 
+DEBUG_MODE = False
 
-'''
-#1 - пустой блок
-#2 - астероид
-
-
-#10 - планета
-#20 - скопление астеройдов
-#30 - космическая база
-
-'''
+def SHOW(a, MODE):
+    if DEBUG_MODE:
+        print(a)
+    else:
+        pass
 
 class get:
+    
+    class events():
+        def text(event_name : str) -> str:
+            file_ = open("cfg.json", "r", encoding="utf-8").read()
+            cfg = json.loads(file_)
+            return cfg["history"][event_name]["text"]
+        
+        def baf(event_name : str, baf_ : str):
+            file_ = open("cfg.json", "r", encoding="utf-8").read()
+            cfg = json.loads(file_)
+            return cfg["history"][event_name]["bafs"][baf_]
+    
+    def list_events():
+        file_ = open("cfg.json", "r", encoding="utf-8").read()
+        cfg = json.loads(file_)
+        
+        arr = []
+        
+        for i in cfg["history"]:
+            arr.append(i)
+        return arr      
+
+    def condition(event_name : str, condition : str):
+        file_ = open("cfg.json", "r", encoding="utf-8").read()
+        cfg = json.loads(file_)
+        
+        return cfg["history"][event_name]["conditions"][condition]
+    
     def conditions(event_name : str):
         file_ = open("cfg.json", "r", encoding="utf-8").read()
         cfg = json.loads(file_)
@@ -35,15 +59,43 @@ class map:
 
     class gen:
         
-        def city(name : str, races : list) -> dict:
+        def city(name : str, races : list, pop = 4000) -> dict:
             
             file_ = open("cfg.json", "r", encoding="utf-8").read()
             cfg = json.loads(file_)
             
             arr = {}
             arr["name"] = name
+            arr["population"] = pop
+            arr["factory"] = 0
+            arr["war_factory"] = 0
+            arr["aria"] = 36 #Km^3
+            arr["ore"] = 0
             
-            arr["buildings"] = []
+            resurses = {} # ресурсы
+            resurses["titanium"] = 0 # Титан (основа для всей высоко уровневой техники)
+            resurses["iron"] = 0 # Железа (ресурс для создания инструментов и строительства)
+            resurses["gold"] = 0 # Золото (ценный ресурс, хороший проводник а также средство поддержания экономики)
+            resurses["rubber"] = 0 # Резина (необхадима для разного рода техники)
+            resurses["wood"] = 0 # Древесина (материал для домов и других зданий можно применить в качестве топлива)
+            resurses["oil"] = 0 # Нефть (ценейший ресрс для машино сторения)
+            resurses["gas"] = 0 # Газ (ольтернотивный источьник топлитва для наземного и воздушного транспорта)
+            
+            army = {}
+            army["population"] = pop / 3
+            army["wapon"] = 0
+            army["tanks"] = 0
+            army["air"] = 0
+            
+            mashins = {}
+            mashins["tank"] = {}
+            mashins["air"] = {}
+            mashins["wapon"] = {}
+            
+            army["mashins"] = mashins
+            
+            arr["army"] = army            
+            arr["resurses"] = resurses
             arr["leder"] = caracter.Create.leder(races)
             arr["idea"] = arr["leder"]["idea"]
             arr["tension"] = cfg["ideas"][arr["idea"]]['bafs']["tension"]
@@ -58,7 +110,7 @@ class map:
             
             arr = []
             
-            for _ in range(random.randint(1, len(data_["materials"]["list"]))):
+            for _ in range(random.randint(1, len(data_["materials"]["list"]) * 2)):
                 arr.append(random.choice(data_["materials"]["list"]))
 
             return arr
@@ -121,7 +173,7 @@ class map:
             return arr
         
     class Simulate:
-        def Global(loops : int, gelaxy : str) -> None:
+        def Global(loops : int, gelaxy : str, show = True) -> None:
             """
             Данная функция симулирует жизнь на планетах
             
@@ -136,56 +188,92 @@ class map:
             f = "saves/"+str(gelaxy)+'.json'
 
             file_ = open(f, "r", encoding="utf-8").read()
-            data_ = json.loads(file_)            
+            data_ = json.loads(file_)          
             for _ in range(loops):
+                
+                o = 0
                 for system in data_:
-                    try:
+                    
+                    
+                    #Итерация по всем обектам в системе, кроме звезды
+                    
+                    if o != len(data_) - 1:
                         for obj in system["ojects"]:
-                            city = obj["citys"]
-                            races = obj["races"]
-                            history_stec = obj["history"]
-                            r = random.randint(0, 20)
-                            
-                            if r == 0 and obj["population"] < cfg["history"]["new_race"]["conditions"]["population"]:
+                            if obj["population"] < 2 and len(obj["citys"]) < 4:
                                 obj["population"] += 1
-                                new_race = random.choice(cfg["races"]["race_list"])
-                                if new_race in obj["races"]:
-                                    pass
-                                else:
-                                    history_stec.append(f'{cfg["history"]["new_race"]["text"]} {new_race}')
-                                    print(f'{Fore.MAGENTA} {obj["objects_name"]} {Fore.WHITE} {cfg["history"]["new_race"]["text"]} {Fore.GREEN} {new_race}')
-                                    races.append(new_race)
-                                    obj["population"] = obj["population"] + cfg["history"]["new_race"]["bafs"]["population"]
+                            elif obj["population"] >= 2 and len(obj["citys"]) < 4:
+                                obj["population"] += obj["population"] / 2
+                            events_list = get.list_events()
+                            event = random.choice(events_list)
+                            SHOW(events_list, DEBUG_MODE)
+                            
+                            for i in obj["citys"]:
+                                resurses: dict = i["resurses"]
+                                factorys: int = i["factory"]
+                                war_factorys: int = i["war_factory"]
+                                army = i["army"]
+                                
+                                industry_bafs = cfg["ideas"][i["idea"]]["bafs"]["support industry"]
+                                war_bafs = cfg["ideas"][i["idea"]]["bafs"]["support war"]
+                                
+                                ore: list = obj["materials"]
+                                SHOW(ore, MODE=DEBUG_MODE)
+                                
+                                # Завдо производит мирную продукцию и добывает ресурсы
+                                if "titan_ore" in ore:
+                                    resurses["titanium"] += cfg["materials"]["titan_ore"]["elemnts"]["Ti"] * (factorys + industry_bafs)
+                                if "iron_ore" in ore:
+                                    resurses["iron"] += cfg["materials"]["iron_ore"]["elemnts"]["Fe"] * (factorys + industry_bafs)                                
+                                if "gold_ore" in ore:
+                                    resurses["gold"] += cfg["materials"]["gold_ore"]["elemnts"]["Au"] * (factorys + industry_bafs)
+                                if "wood" in ore:
+                                    resurses["wood"] += 1 * (factorys + industry_bafs)
+                                if "oil" in ore:
+                                    resurses["oil"] += 1 * (factorys + industry_bafs)
+                                for i in ore:
+                                    if cfg["materials"]["gases"] in ore:
+                                        resurses["gas"] += cfg["materials"][i]["elemnts"]["H"] * factorys
+                                        
+                                # Военные фабрики производят необходимое для войны
+                                if war_factorys >= 1:
+                                    if army["mashins"]["tank"] != {}:
+                                        army["tanks"] += 1 * (war_factorys + war_bafs)
+                                    if army["mashins"]["air"] != {}:
+                                        army["air"] += 1 * (war_factorys + war_bafs)
+                                    if army["mashins"]["wapon"] != {}:
+                                        army["wapons"] += 1 * (war_factorys + war_bafs)
+                                                                                
+                            #Выбор случайных событий из списка
+                            if obj["population"] >= get.condition(event, "population"):
+                                if show:
+                                    print(Fore.MAGENTA + obj["objects_name"] + Fore.WHITE + " " + get.events.text(event))
+                                obj["population"] += get.events.baf(event, "population")
 
-                            if r == 1 and obj["population"] > cfg["history"]["new_city"]["conditions"]["population"]:
-                                arr = []
-                                
-                                if obj["citys"] == []:
-                                    new_city = random.choice(cfg["citys_name"])
-                                    history_stec.append(f'{cfg["history"]["new_city"]["text"]} {new_city}')
-                                    obj["population"] = obj["population"] + cfg["history"]["new_race"]["bafs"]["population"]
-                                    city.append(map.gen.city(new_city, obj["races"]))
-                                                                        
-                                for i in obj["citys"]:
-                                    arr.append(i["name"])
-                                new_city = random.choice(cfg["citys_name"])
-                                
-                                if new_city not in arr:
-                                    history_stec.append(f'{cfg["history"]["new_city"]["text"]} {new_city}')
-                                    print(f'{Fore.MAGENTA} {obj["objects_name"]} {Fore.WHITE} {cfg["history"]["new_city"]["text"]} {Fore.GREEN} {new_city}')
-                                    obj["population"] = obj["population"] + cfg["history"]["new_race"]["bafs"]["population"]
-                                    city.append(map.gen.city(new_city, obj["races"]))
-                                
-                            if obj["population"] >= 4:
-                                obj["population"] = round(obj["population"] + (obj["population"]/3))
-                                
-                            obj["citys"] = city    
-                            obj["races"] = races
-                            obj["history"] = history_stec
-                         
-                    except:
-                        pass
-            
+                                # Событие зарождение новой рассы
+                                if event == "new_race" and random.randint(1, 100) >= 20:
+                                    arr: list = obj["races"]
+                                    rrace = random.choice(cfg["races"]["race_list"])
+                                    if rrace not in arr:
+                                        arr.append(rrace)
+                                    obj["races"] = arr
+
+                                # Событие основание нового города
+                                if event == "new_city" and random.randint(1, 100) >= 40 and len(obj["citys"]) < 4:
+                                    arr: list = obj["citys"]
+                                    arr.append(map.gen.city(random.choice(cfg["citys_name"]), obj["races"], get.condition(event, "population")))
+                                    obj["citys"] = arr
+                                    obj["population"] -= get.condition(event, "population")
+
+                                # Событие основание нового города
+                                if event == "new_building" and random.randint(1, 100) >= 40 and len(obj["citys"]) > 0:
+                                    for i in obj["citys"]:
+                                        builds: list = cfg["buildings"]["list"]
+                                        build = random.choice(builds)
+                                        i[build] += 1
+                            
+                    o += 1
+                SHOW(f"{Fore.YELLOW}[step: {_+1}]{Fore.WHITE}", MODE=DEBUG_MODE)       
+                    
             # сохраняем словарь с информацией в фаил соответствующий айди пользователя
             with open(f, 'w', encoding="utf-8") as file:
                 json.dump(data_, file, indent=2)

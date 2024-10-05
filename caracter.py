@@ -60,8 +60,6 @@ class Create:
         
         arr["idea"] = Create.choise_idea(modifications, arr["race"])
         
-        
-        
         arr["name"] = random.choice(data["races"][r_race]["names"]) + " " + random.choice(data["lastname_list"])        
         return arr
     

@@ -40,9 +40,7 @@ def game(game_name):
 
             for i in data_:
                 try:
-                    file_ = open(f"caracters/{i["player"]["name"]}.json", "r", encoding="utf-8").read()
-                    data = json.loads(file_)
-                    plaer = i["player"]["sys"]
+                    plaer = p["meta"]["player_sys"]
                 except:
                     pass
 
@@ -53,6 +51,8 @@ def game(game_name):
             
         if command == "quit":
             break
+        
+        world.map.Simulate.Global(gelaxy=game_name, loops=1, show = False)
 
                 
         

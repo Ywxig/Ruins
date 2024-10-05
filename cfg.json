@@ -39,7 +39,8 @@
         },
 
         "materials" : {
-            "list" : ["iron_ore", "copper_ore", "titan_ore"],
+            "list" : ["iron_ore", "copper_ore", "titan_ore", "wood", "gold_ore", "oil", "metan"],
+            "gases" : ["metan", "propan"],
             "iron_ore" : {
                 "name" : "Iron ore",
                 "mass" : 7800000, 
@@ -67,6 +68,43 @@
                 "elemnts" : {
                     "Ti" : 0.8,
                     "O" : 0.2
+                }
+            },
+            "gold_ore" : {
+                "name" : "Gold ore",
+                "mass" : 8330000, 
+                "ro" : 3.33,
+                "elemnts" : {
+                    "Au" : 0.8,
+                    "O" : 0.2
+                }
+            }
+            ,
+            "oil" : {
+                "name" : "Oil",
+                "mass" : 10000, 
+                "ro" : 3.33,
+                "elemnts" : {
+                    "C" : 0.5,
+                    "H" : 0.5
+                }
+            },
+            "metan" : {
+                "name" : "Metan",
+                "mass" : 10000, 
+                "ro" : 3.33,
+                "elemnts" : {
+                    "C" : 0.2,
+                    "H" : 0.8
+                }
+            },
+            "whater" : {
+                "name" : "Whater",
+                "mass" : 10000, 
+                "ro" : 1.0,
+                "elemnts" : {
+                    "C" : 0.5,
+                    "H" : 0.5
                 }
             }
         },
@@ -110,6 +148,16 @@
             "Milan" : "    &    \n || O || \n @@@&@@@ \n  ^ & ^  \n        \n"
         },
         "types": ["Planet", "Asteroid"],
+
+        "buildings" : {
+            "list" : ["factory", "war_factory"],
+            "factory" : {
+                "product" : 1 
+            },
+            "war_factory" : {
+                "war_product" : 1
+            }
+        },
         "enter_name" : "Введите ваше имя",
         "load_succesfull" : "Сохранение загружено успешно",
         "wellcome": "Добро пожаловать в Ruins", 
@@ -138,12 +186,26 @@
             "new_city" : {
                 "text" : "основан новый город: ",
                 "bafs" : {
+                    "population" : 0
+                },
+                "conditions" : {
+                    "population" : 4000
+                }
+            },
+
+            "new_building" : {
+                "text" : "построено новое здание: ",
+                "bafs" : {
+                    "population" : 0
                     
                 },
                 "conditions" : {
-                    "population" : 400
+                    "population" : 4000,
+                    "citys" : 1
                 }
             }
+
+
         }, 
         "ideas" : {
             "liberalism" : {
@@ -203,7 +265,7 @@
                 "size" : [152, 183],
                 "lenguges" : ["int", "all"],
                 "skill" : "",
-                "names" : [],
+                "names" : ["Sulu", "Kirk", "Uhura"],
                 "survival": {
                     "temp-min" : -60,
                     "temp-max" : 60 
@@ -220,7 +282,7 @@
                 "size" : [60, 80],
                 "lenguges" : ["int",  "drl"],
                 "skill" : "nightvision",
-                "names" : [],
+                "names" : ["Sulu", "Kirk", "Uhura"],
                 "survival": {
                     "temp-min" : -40,
                     "temp-max" : 80 
