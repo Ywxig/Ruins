@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruins</title>
+    <script src="PageLoader.js"></script>
+    <script src="DeBugs.js"></script>
+</head>
+<style>
+    canvas {
+        border: solid;
+        border-color: black;
+    }
+</style>
+<body>
+    <button onclick="move('right')">right</button>
+    <button onclick="move('left')">left</button>
+    <button onclick="move('up')">up</button>
+    <button onclick="move('down')">down</button>
+    <div id="content"></div>
+    <canvas id="canvas" width="960px" height="960px"></canvas>
+</body>
+</html>
