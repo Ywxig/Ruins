@@ -4,21 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruins</title>
-    <script src="PageLoader.js"></script>
-    <script src="DeBugs.js"></script>
+    <script src="PageLoader.js">
+    </script>
 </head>
 <style>
+
+.button {
+      width: 50px;
+      height: 50px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      color: white;
+      display: inline;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.2s;
+    }
     canvas {
-        border: solid;
+        width: 320px;
+        background: black;
         border-color: black;
     }
+
+    /* Размещение кнопок по кругу */
+    #up { top: 10px; }
+    #down { bottom: 10px; }
+    #left { left: 10px; }
+    #right { right: 10px; }
+
+    .ui {
+
+        display: inline; /* Убирает перенос строки */
+        border-color: black;
+    }
+
 </style>
+
+
+
 <body>
-    <button onclick="move('right')">right</button>
-    <button onclick="move('left')">left</button>
-    <button onclick="move('up')">up</button>
-    <button onclick="move('down')">down</button>
+
+    <tr>
+        <td>
+            <div class="ui">
+
+                <!-- Кнопки для управления -->
+                <table style="display: inline-block;">
+                    <tr>
+                      <th></th>
+                      <th><button id="up" class="button" onclick="move('up')">↑</button></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <td><button id="left" class="button" onclick="move('left')">←</button></td>
+                      <td></td>
+                      <td><button id="right" class="button" onclick="move('right')">→</button></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><button id="down" class="button" onclick="move('down')">↓</button></td>
+                      <td></td>
+                    </tr>
+                  </table>
+
+            </div>
+        </td>
+
+        <td>
+            <canvas id="canvas" width="320px" height="320px"></canvas>
+        </td>
+    </tr>
+    
+
+
+
     <div id="content"></div>
-    <canvas id="canvas" width="960px" height="960px"></canvas>
+    
 </body>
 </html>
