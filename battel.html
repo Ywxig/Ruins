@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="battel.js"></script>
+    <title>Бой</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .battle-log { height: 150px; overflow-y: auto; border: 1px solid #000; padding: 10px; margin-top: 10px; }
+        button { margin: 5px; padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Бой!</h1>
+    <p id="player-hp">Игрок HP: 100</p>
+    <p id="enemy-hp">Враг HP: 80</p>
+    
+    <button onclick="attack()">Атаковать</button>
+    <button onclick="heal()">Лечиться</button>
+    
+    <div class="battle-log" id="log"></div>
+
+    
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruins</title>
+    <script src="PageLoader.js">        
+    </script>
+</head>
+<style>
+
+html, body {
+    overflow: hidden;
+    
+}
+
+
+
+table {
+    top: 50%;
+    position: fixed;
+    z-index: 2;
+}
+
+.button {
+      width: 50px;
+      height: 50px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      color: white;
+      display: inline;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.2s;
+    }
+    canvas {
+        background: black;
+        border-color: black;
+    }
+
+    /* Размещение кнопок по кругу */
+    #up { top: 10px; }
+    #down { bottom: 10px; }
+    #left { left: 10px; }
+    #right { right: 10px; }
+
+    .ui {
+        
+        display: inline; /* Убирает перенос строки */
+        border-color: black;
+    }
+
+</style>
+
+
+
+<body class="scroll">
+
+    <audio id="musicPlayer" src="D:\Music\AC-DC\2020 - Power Up\07 Demon Fire.m4a" loop></audio>
+<div id="content">
+    
+    <button onclick="loadPage('game')">Game</button>
+
+</div>
+    
+</body>
+</html>
