@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruins</title>
-    <script src="PageLoader.js">
+    <script src="PageLoader.js">        
     </script>
 </head>
 <style>
+
+html, body {
+    overflow: hidden;
+    
+}
+
+
+
+table {
+    top: 50%;
+    position: fixed;
+    z-index: 2;
+}
 
 .button {
       width: 50px;
@@ -24,7 +37,6 @@
       transition: background-color 0.2s;
     }
     canvas {
-        width: 320px;
         background: black;
         border-color: black;
     }
@@ -36,7 +48,7 @@
     #right { right: 10px; }
 
     .ui {
-
+        
         display: inline; /* Убирает перенос строки */
         border-color: black;
     }
@@ -45,43 +57,14 @@
 
 
 
-<body>
+<body class="scroll">
 
-    <tr>
-        <td>
-            <div class="ui">
-
-                <!-- Кнопки для управления -->
-                <table style="display: inline-block;">
-                    <tr>
-                      <th></th>
-                      <th><button id="up" class="button" onclick="move('up')">↑</button></th>
-                      <th></th>
-                    </tr>
-                    <tr>
-                      <td><button id="left" class="button" onclick="move('left')">←</button></td>
-                      <td></td>
-                      <td><button id="right" class="button" onclick="move('right')">→</button></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td><button id="down" class="button" onclick="move('down')">↓</button></td>
-                      <td></td>
-                    </tr>
-                  </table>
-
-            </div>
-        </td>
-
-        <td>
-            <canvas id="canvas" width="320px" height="320px"></canvas>
-        </td>
-    </tr>
+    <audio id="musicPlayer" src="D:\Music\AC-DC\2020 - Power Up\07 Demon Fire.m4a" loop></audio>
+<div id="content">
     
+    <button onclick="loadPage('game')">Game</button>
 
-
-
-    <div id="content"></div>
+</div>
     
 </body>
 </html>
