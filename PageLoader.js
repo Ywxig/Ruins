@@ -1,350 +1,322 @@
 
-__DEBUG__ = true
-
-block_size = 32
-canvas_size = [3,3]
-map_size = [10,10]
-generateDungeon(map_size[0], map_size[1], Math.round((map_size[0]*map_size[1]) / 3));
-let map = generateDungeon(map_size[0], map_size[1], Math.round((map_size[0]*map_size[1]) / 3));
-localStorage.setItem("map", JSON.stringify(map))
-localStorage.setItem("player_pos", JSON.stringify([0, 0]))
-
-game = false
-
-ITEMS = {
-    "player" : {name: "@", color: "violet", texture: "player.png", model: "https://preview.redd.it/pixel-ellen-v0-6zjjooemeqad1.png?width=4830&format=png&auto=webp&s=e4532eca4dc9e9900b7a662a392cfd145cdc0848", type: "player"},
-    "0" : {name: "0", color: "rgb(158, 158, 158)", texture: "https://img.freepik.com/free-vector/stone-wall-texture_1110-425.jpg", type: "wall"},
-    "1" : {name: "1", color: "rgb(58, 58, 58)", texture: "https://godotmarketplace.com/wp-content/uploads/2023/11/3.jpg", type: "flor"},
-    "[" : {name: "[", color: "rgb(58, 58, 58)", texture: "https://godotmarketplace.com/wp-content/uploads/2023/11/3.jpg", type: "flor"},
-    "e" : {name: "e", color: "rgb(145, 0, 0)", texture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4lZiy5Jvdr0UvH-kXVgbEfNnDn6cvLHg67eKT42QtK74FUg46WuO4wMg3etDJq2HAF4A&usqp=CAU", type: "enemy"},
-    "E" : {name: "E", color: "rgb(1, 255, 65)", texture: "", type: "exit"} 
-}
-
-stap_blocks = ['1', "e", "E", "["]
+//  RUINS — PageLoader.js (рефакторинг)
 
 
+const DEBUG = true;
+const lastFloor = localStorage.getItem("lastFloor") || 1;
+//  Настройки 
+const BLOCK_SIZE = 32;
+const MAP_W = 16;
+const MAP_H = 12;
+const CANVAS_COLS = 19;   // сколько клеток видно по горизонтали
+const CANVAS_ROWS = 13;   // сколько клеток видно по вертикали
 
-function playBGmusic() {
-    const musicPlaer = document.getElementById('musicPlayer');
-    let audio = new Audio('D:\\Music\\AC-DC\\2020 - Power Up\\07 Demon Fire.m4a');
-    audio.autoplay = true;
-    audio.loop = true;
-    audio.play();
-}
-
-function printd(value, debugMode = True) {
-    if (debugMode == true) {
-        console.log(value)
+//  Описание тайлов 
+const TILES = {
+    "hero": { 
+        color: "#2a2a3a", 
+        type: "player", 
+        symbolColor: "#66ccff",  // голубой герой
+        char: "@" 
+    },
+    "0": { 
+        color: "#111111", 
+        type: "wall", 
+        symbolColor: "#333333",
+        char: ""                 // решётка для стен
+    },
+    "1": { 
+        color: "#1a1a1a", 
+        type: "floor", 
+        symbolColor: "#2a2a2a",
+        char: "" 
+    },
+    "e": { 
+        color: "#3a1a1a", 
+        type: "enemy", 
+        symbolColor: "#ff3333",   // красный враг
+        char: "☠" 
+    },
+    "E": { 
+        color: "#1a3a1a", 
+        type: "exit", 
+        symbolColor: "#33ff33",   // зелёный выход
+        char: "⬇" 
+    },
+    "H": { 
+        color: "#3a1a3a", 
+        type: "health", 
+        symbolColor: "#ff66cc",   // розовый хил
+        char: "❤" 
     }
-}
+};
 
-function loadPage(page) {
-    
-    const content = document.getElementById('content');
-    switch (page) {
-      case 'home':
-        content.innerHTML = mainPage();
-        printd("[Home]", __DEBUG__);
-        break;
-        
-        case 'game':
-            content.innerHTML = gamePage();
-            printd("[game]", __DEBUG__);
-            break;
+const WALKABLE = new Set(["1", "e", "E", "H"]);
 
-        case 'battle':
-            content.innerHTML = BattlePage();
-            printd("[battle]", __DEBUG__);
-            break;
+//  Состояние игры 
+let map        = [];
+let playerPos  = { x: 0, y: 0 };
+let floorNum   = 1;
+let player     = { hp: 100, maxHp: 100, attack: 20 };
+let enemyDmg   = 15;   // урон от каждого врага при наступании
 
-      default:
-        printd("Fail :(", __DEBUG__);
-        content.innerHTML = `<h1>Страница не найдена</h1>`;
-    }
-  }
+//  Утилиты 
+function log(msg) { if (DEBUG) console.log(msg); }
 
-function BattlePage() {
-    let page = `
-                    <style>
-                        body { font-family: Arial, sans-serif; text-align: center; }
-                        .battle-log { height: 150px; overflow-y: auto; border: 1px solid #000; padding: 10px; margin-top: 10px; }
-                        button { margin: 5px; padding: 10px; font-size: 16px; }
-                    </style>
-                    <h1>Бой!</h1>
-                    <img src="${player.model}" alt="Игрок" style="width: 100px; height: 100px;">
-                    <img src="" alt="Враг" style="width: 100px; height: 100px;">
-                    <p id="player-hp">Игрок HP: 100</p>
-                    <p id="enemy-hp">Враг HP: 80</p>
-
-                    <button onclick="attack()">Атаковать</button>
-                    <button onclick="heal()">Лечиться</button>
-
-                    <div class="battle-log" id="log"></div>`
-    return page;
-}
-
-function mainPage() {
-    let page = `
-    <h1>Главная страница</h1>
-    `
-    return page;
-}
-
-function if_in(array, item) {
-    return array.includes(item)
-}
-
-
-function generateDungeon(width, height, steps) {
-    let save = {}
-    let dungeon = Array.from({ length: height }, () => Array(width).fill("0"));
-    let x = 0
-    let y = 0
-    dungeon[y][x] = "1"; // Начальная точка
-
-    for (let i = 0; i < steps; i++) {
-        let randDirection = getRandomInt(0, 100);
-
-        if (randDirection < 25 && x + 1 < width) {
-            x += 1;  // Движение вправо (более вероятное)
-        } else if (randDirection < 50 && x - 1 >= 0) {
-            x -= 1;  // Движение влево
-        } else if (randDirection < 75 && y + 1 < height) {
-            y += 1;  // Движение вниз
-        } else if (y - 1 >= 0) {
-            y -= 1;  // Движение вверх
-        }
-        
-        dungeon[y][x] = "1";
-         
-    }
-
-    for (let i = 0; i < (width*height) / 20; i++) {
-        let x = getRandomInt(0, width - 1);
-        let y = getRandomInt(0, height - 1);
-        if (dungeon[y][x] == "1") {dungeon[y][x] = "e";}
-    }
-
-    console.log(dungeon)
-    save["map"] = dungeon
-    save["enemys"] = []
-    dungeon[y][x] = "E"
-    localStorage.setItem("map", JSON.stringify(dungeon))
-    localStorage.setItem("player_pos", JSON.stringify([0, 0]))
-    player_pos = [0, 0]
-
-    offset_left = (JSON.parse(localStorage.getItem("player_pos"))[0] - 5) * -1
-    offset_top = (JSON.parse(localStorage.getItem("player_pos"))[1] - 5) * -1
-
-    return dungeon;
-    
-}
-
-function getRandomInt(min, max) {
+function randInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function showEvent(msg) {
+    const el = document.getElementById("event-log");
+    if (!el) return;
+    el.innerHTML = `<span>${msg}</span>`;
+}
 
-function canvasSectorsRender(map, player_pos, left, top, ITEMS) {
+//  Генерация подземелья 
+function generateDungeon(w, h) {
+    const steps = Math.round((w * h) / 2.5);
+    const grid  = Array.from({ length: h }, () => Array(w).fill("0"));
 
-    if (map[player_pos[1]][player_pos[0]] == "e") {
-        loadPage("battle");
+    let x = 1, y = 1;
+    grid[y][x] = "1";
+
+    for (let i = 0; i < steps; i++) {
+        const d = randInt(0, 3);
+        if (d === 0 && x + 1 < w - 1) x++;
+        else if (d === 1 && x - 1 > 0) x--;
+        else if (d === 2 && y + 1 < h - 1) y++;
+        else if (d === 3 && y - 1 > 0) y--;
+        grid[y][x] = "1";
     }
 
-    if (map[player_pos[1]][player_pos[0]] == "E") {
-
-        const content = document.getElementById('content');
-
-        localStorage.setItem("map", "")
-        localStorage.setItem("player_pos", "")
-        player_pos = [0, 0]
-
-        map = generateDungeon(map_size[0], map_size[1], Math.round((map_size[0]*map_size[1]) / 3));
-        localStorage.setItem("map", JSON.stringify(map))
-        localStorage.setItem("player_pos", JSON.stringify([0, 0]))
-
-        content.innerHTML = `<button onclick="loadPage('game')">Game</button>`;
-        return;
+    // Враги
+    const enemyCount = Math.floor((w * h) / 18);
+    for (let i = 0; i < enemyCount; i++) {
+        const ex = randInt(1, w - 2);
+        const ey = randInt(1, h - 2);
+        if (grid[ey][ex] === "1") grid[ey][ex] = "e";
     }
 
-    //if (game == false) {playBGmusic()}
-    game = true
+    // Хилка
+    const healthCount = Math.floor((w * h) / 30);
+    for (let i = 0; i < healthCount; i++) {
+        const hx = randInt(1, w - 2);
+        const hy = randInt(1, h - 2);
+        if (grid[hy][hx] === "1") grid[hy][hx] = "H";
+    }
+
+    // Выход — последняя обработанная клетка
+    grid[y][x] = "E";
+
+    return grid;
+}
+
+//  Рендер 
+function render() {
     const canvas = document.getElementById("canvas");
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
 
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, 32*(map_size[0] + 10), 32*(map_size[1] + 10));
+    ctx.fillStyle = "#050508";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    map = JSON.parse(localStorage.getItem("map"))
+    // Смещение камеры (центрируем игрока)
+    const camOffX = Math.floor(CANVAS_COLS / 2) - playerPos.x;
+    const camOffY = Math.floor(CANVAS_ROWS / 2) - playerPos.y;
 
-    for (let i = 0; i < map.length; i++) {
-        for (let j = 0; j < map[i].length; j++) {
+    for (let row = 0; row < map.length; row++) {
+        for (let col = 0; col < map[row].length; col++) {
+            const tile = map[row][col];
+            const sx   = (col + camOffX) * BLOCK_SIZE;
+            const sy   = (row + camOffY) * BLOCK_SIZE;
 
-            console.log(map[i][j])
-            
-            if (map[i][j] != ITEMS["player"]["color"]) {
-                ctx.fillStyle = ITEMS[map[i][j]]["color"];
-                const img = new Image();
-                img.src = ITEMS[map[i][j]]["texture"];
-                img.onload = ()=> ctx.drawImage(img, block_size * (j + left), block_size * (i + top), block_size, block_size)
+            if (sx < -BLOCK_SIZE || sy < -BLOCK_SIZE ||
+                sx > canvas.width + BLOCK_SIZE || sy > canvas.height + BLOCK_SIZE) continue;
 
-                //ctx.fillStyle = ITEMS[map[i][j]]["color"];
-                //ctx.fillRect(block_size * (j + left), block_size * (i + top), block_size, block_size)                    
+            const info = TILES[tile];
+            if (!info) continue;
+
+            ctx.fillStyle = info.color;
+            ctx.fillRect(sx, sy, BLOCK_SIZE, BLOCK_SIZE);
+
+            // Символы поверх плитки
+            if (info.char) {
+                ctx.fillStyle = TILES[tile].color;
+                ctx.font = `${BLOCK_SIZE - 4}px monospace`;
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillStyle = TILES[tile].symbolColor || "#FFFFFF"; // используем цвет символа из конфига
+                ctx.fillText(TILES[tile].char, sx + BLOCK_SIZE / 2, sy + BLOCK_SIZE / 2);
             }
         }
     }
-    ctx.fillStyle = ITEMS["player"]["color"];
-    const img = new Image();
-    img.src = ITEMS["player"]["texture"];
-    //ctx.fillRect(block_size * (player_pos[0] + left), block_size * (player_pos[1] + top), block_size, block_size)
-    img.onload = ()=> ctx.drawImage(img, block_size * (player_pos[0] + left), block_size * (player_pos[1] + top), block_size, block_size)
+    
 
+    // Игрок
+    const px = (playerPos.x + camOffX) * BLOCK_SIZE;
+    const py = (playerPos.y + camOffY) * BLOCK_SIZE;
+    ctx.fillStyle = TILES["hero"].color;
+    ctx.fillRect(px + 2, py + 2, BLOCK_SIZE - 4, BLOCK_SIZE - 4);
+    ctx.fillStyle = TILES["hero"].symbolColor || "#cc99ff";
+    ctx.font = `${BLOCK_SIZE - 6}px monospace`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(TILES["hero"].char, px + BLOCK_SIZE / 2, py + BLOCK_SIZE / 2);
+
+    updateHUD();
 }
 
-function createMatrix(M, N, defaultValue = "0") {
-    const matrix = [];
-    
-    for (let i = 0; i < M; i++) {
-        const row = [];
-        for (let j = 0; j < N; j++) {
-            row.push(defaultValue);  // Можно изменить defaultValue на любое значение
+function updateHUD() {
+    const hpBar  = document.getElementById("hp-bar");
+    const hpText = document.getElementById("hp-text");
+    const flTxt  = document.getElementById("floor-text");
+    const lastFloor = localStorage.getItem("lastFloor") || 1;
+    if (hpBar)  hpBar.style.width  = Math.max(0, (player.hp / player.maxHp) * 100) + "%";
+    if (hpText) hpText.textContent = `${player.hp} / ${player.maxHp}`;
+    if (flTxt)  flTxt.textContent  = `Этаж ${floorNum}/${lastFloor}`;
+    eventLog = document.getElementById("event-log");
+    eventLog.style.width = `${CANVAS_COLS * BLOCK_SIZE + 4}px`;
+}
+
+//  Движение и мгновенный бой 
+function move(dir) {
+    let nx = playerPos.x;
+    let ny = playerPos.y;
+
+    if (dir === "up")    ny--;
+    if (dir === "down")  ny++;
+    if (dir === "left")  nx--;
+    if (dir === "right") nx++;
+
+    // Граница карты
+    if (nx < 0 || ny < 0 || ny >= map.length || nx >= map[0].length) return;
+
+    const tile = map[ny][nx];
+
+    if (!WALKABLE.has(tile)) return; // стена
+
+    //  Мгновенный бой 
+    if (tile === "e") {
+        player.hp -= enemyDmg;
+        map[ny][nx] = "1";   // враг погибает — клетка становится полом
+        showEvent(`⚔ Ты атакуешь врага! Получаешь ${enemyDmg} урона. HP: ${player.hp}`);
+        log(`Бой: игрок −${enemyDmg} HP → ${player.hp}`);
+
+        if (player.hp <= 0) {
+            loadPage("death");
+            return;
         }
-        matrix.push(row);
+
+        playerPos.x = nx;
+        playerPos.y = ny;
+        render();
+        return;
     }
 
-    return matrix;
+    // подбираем хилку
+    if (tile === "H") {
+        player.hp = Math.min(player.maxHp, player.hp + 30);
+        map[ny][nx] = "1";   // клетка становится полом
+        showEvent(`✨ Ты подбираешь зелье и восстанавливаешь 30 HP! HP: ${player.hp}`);
+        log(`Хилка: игрок +30 HP → ${player.hp}`);
+
+        playerPos.x = nx;
+        playerPos.y = ny;
+        render();
+        return;
+    }
+
+    //  Выход на следующий этаж 
+    if (tile === "E") {
+        floorNum++;
+        localStorage.setItem("lastFloor", floorNum);
+        showEvent(`✦ Ты спускаешься на этаж ${floorNum}…`);
+        startGame();
+        return;
+    }
+
+    playerPos.x = nx;
+    playerPos.y = ny;
+    render();
 }
 
-function move(direction) {
-
-
-
-    let map = JSON.parse(localStorage.getItem("map"))
-    console.log(player_pos)
-    console.log(offset_left, offset_top)
-    console.log(map)
-    
-
-    if (direction == "up" &&  player_pos[1] > 0 && if_in(stap_blocks, map[player_pos[1]- 1][player_pos[0]])) {
-        player_pos[1]--;
-        offset_top++;
-        //if (player_pos[1] * block_size <= 2 * block_size) {offset_top++}
-    }
-    if (direction == "down" &&  player_pos[1] < map_size[1] - 1 && if_in(stap_blocks, map[player_pos[1] + 1][player_pos[0]])) {
-        player_pos[1]++;
-        offset_top--;
-        //if (player_pos[1] * block_size >= 2 * block_size) {offset_top--}
-        
-    }
-    if (direction == "right" &&  player_pos[0] < map_size[0] - 1 && if_in(stap_blocks, map[player_pos[1]][player_pos[0] + 1])) {
-        player_pos[0]++;
-        offset_left--;
-        //if (player_pos[0] * block_size >= 2 * block_size) {offset_left--}        
-    }
-    if (direction == "left" &&  player_pos[0] > 0 && if_in(stap_blocks, map[player_pos[1]][player_pos[0] - 1])) {
-        player_pos[0]--;
-        offset_left++;
-        //if (player_pos[0] * block_size <= 2 * block_size) {offset_left++}
-    }
-    localStorage.setItem("player_pos", JSON.stringify([0, 0]))
-    canvasSectorsRender(JSON.parse(localStorage.getItem("map")), player_pos, offset_left, offset_top, ITEMS);
+//  Управление с клавиатуры 
+function setupKeyboard() {
+    document.onkeydown = (e) => {
+        const dirs = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right",
+                       w: "up", s: "down", a: "left", d: "right" };
+        if (dirs[e.key]) { e.preventDefault(); move(dirs[e.key]); }
+    };
 }
 
+//  Страницы 
+function loadPage(page) {
+    const content = document.getElementById("content");
+    log(`[page: ${page}]`);
 
-function gamePage() {
-    let page = `    <tr>
-        <td>
-            <div class="ui">
+    switch (page) {
+        case "home":
+            content.innerHTML = pagHome();
+            break;
+        case "game":
+            content.innerHTML = pageGame();
+            setupKeyboard();
+            startGame();
+            break;
+        case "death":
+            content.innerHTML = pageDeath();
+            document.onkeydown = null;
+            break;
+        default:
+            content.innerHTML = `<h2>Страница не найдена</h2>`;
+    }
+}
 
-                <!-- Кнопки для управления -->
-                <table style="display: inline-block;">
-                    <tr>
-                      <th></th>
-                      <th><button id="up" class="button" onclick="move('up')">↑</button></th>
-                      <th></th>
-                    </tr>
-                    <tr>
-                      <td><button id="left" class="button" onclick="move('left')">←</button></td>
-                      <td></td>
-                      <td><button id="right" class="button" onclick="move('right')">→</button></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td><button id="down" class="button" onclick="move('down')">↓</button></td>
-                      <td></td>
-                    </tr>
-                  </table>
+function startGame() {
+    map = generateDungeon(MAP_W, MAP_H);
+    playerPos = { x: 1, y: 1 };
+    // Убеждаемся что стартовая клетка — пол
+    map[1][1] = "1";
+    render();
+}
 
+//  HTML страниц 
+function pagHome() {
+    return `
+    <div class="main-menu">
+        <h1>RUINS</h1>
+        <p>⚔ dungeon crawler ⚔</p>
+        <button class="menu-btn" onclick="loadPage('game')">▶ Новая игра</button>
+    </div>`;
+}
+
+function pageGame() {
+    return `
+    <div id="game-wrapper">
+        <div id="hud">
+            <div id="hud-left">
+                <span class="hud-label">HP</span>
+                <div id="hp-bar-wrap"><div id="hp-bar" style="width:100%"></div></div>
+                <span id="hp-text">100 / 100</span>
             </div>
-        </td>
-
-        <td>
-            
-        </td>
-    </tr>
-
-    <canvas id="canvas" width="900px" height="380px" onclick="canvasSectorsRender(map, player_pos, offset_left, offset_top)"></canvas>
-`
-return page;
+            <span id="floor-text">Этаж 1</span>
+        </div>
+        <canvas id="canvas"
+            width="${CANVAS_COLS * BLOCK_SIZE}"
+            height="${CANVAS_ROWS * BLOCK_SIZE}">
+        </canvas>
+        <div id="event-log"></div>
+    </div>`;
 }
 
-
-`Блок боя!!!`
-
-// Объекты игрока и врага
-let player = { hp: 100, attack: 15, healAmount: 10, model: ITEMS["player"]["model"] };
-let enemy = { hp: 80, attack: 10 };
-
-// Функция атаки
-function attack() {
-    enemy.hp -= player.attack;
-    logMessage(`Игрок атакует! Враг теряет ${player.attack} HP.`);
-    updateHP();
-
-    if (enemy.hp <= 0) return endGame("Игрок победил!");
-
-    enemyTurn();
-}
-
-// Функция лечения
-function heal() {
-    player.hp += player.healAmount;
-    logMessage(`Игрок лечится и восстанавливает ${player.healAmount} HP.`);
-    updateHP();
-
-    enemyTurn();
-}
-
-// Ход врага
-function enemyTurn() {
-    let damage = enemy.attack;
-    player.hp -= damage;
-    logMessage(`Враг атакует! Игрок теряет ${damage} HP.`);
-    updateHP();
-
-    if (player.hp <= 0) endGame("Враг победил!");
-}
-
-// Обновление интерфейса
-function updateHP() {
-    document.getElementById("player-hp").innerText = `Игрок HP: ${player.hp}`;
-    document.getElementById("enemy-hp").innerText = `Враг HP: ${enemy.hp}`;
-}
-
-// Лог боя
-function logMessage(message) {
-    let log = document.getElementById("log");
-    log.innerHTML += `<p>${message}</p>`;
-    log.scrollTop = log.scrollHeight; // Прокрутка вниз
-}
-
-// Завершение игры
-function endGame(message) {
-    logMessage(`<strong>${message}</strong>`);
-    document.querySelectorAll("button").forEach(btn => btn.disabled = true);
-    map_new = JSON.parse(localStorage.getItem("map"))
-    map_new[player_pos[1]][player_pos[0]] = "1"
-    localStorage.setItem("map", JSON.stringify(map_new))
-    loadPage("game");
-
+function pageDeath() {
+    return `
+    <div id="death-screen" style="display:block">
+        <h1>ТЫ ПОГИБ</h1>
+        <p>Этаж ${floorNum} · Здоровье исчерпано</p>
+        <button class="menu-btn" onclick="floorNum=1; player={hp:100,maxHp:100,attack:20}; loadPage('game')">
+            ↺ Начать заново
+        </button>
+    </div>`;
 }
