@@ -230,7 +230,9 @@ function move(dir) {
     //  Выход на следующий этаж 
     if (tile === "E") {
         floorNum++;
-        localStorage.setItem("lastFloor", floorNum);
+        if (floorNum > lastFloor) {
+            localStorage.setItem("lastFloor", floorNum);
+        }
         showEvent(`✦ Ты спускаешься на этаж ${floorNum}…`);
         startGame();
         return;
